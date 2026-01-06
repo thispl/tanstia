@@ -1,0 +1,103 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "hash",
+ "creation": "2025-12-18 19:00:07.484481",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_bciz",
+  "date_and_year_of_affiliation",
+  "next_subscription_payment_date",
+  "next_renewal_updating_date",
+  "column_break_taru",
+  "member_id",
+  "strength_of_the_association",
+  "elected_ec_members_size",
+  "column_break_nbjw",
+  "tenure",
+  "disabled"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_bciz",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "date_and_year_of_affiliation",
+   "fieldtype": "Date",
+   "hidden": 1,
+   "label": "Date & Year of Affiliation"
+  },
+  {
+   "fieldname": "next_subscription_payment_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Next Subscription Payment Date"
+  },
+  {
+   "fieldname": "column_break_taru",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "member_id",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Member ID"
+  },
+  {
+   "fieldname": "strength_of_the_association",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Strength of the Association"
+  },
+  {
+   "fieldname": "next_renewal_updating_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Next Last Subscription Payment Date"
+  },
+  {
+   "fieldname": "elected_ec_members_size",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Elected EC Members Size",
+   "non_negative": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "disabled",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "Disabled"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "tenure",
+   "fieldtype": "Data",
+   "label": "Tenure",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_nbjw",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-12-26 10:26:52.394339",
+ "modified_by": "Administrator",
+ "module": "TANSTIA",
+ "name": "Subscription Renewal Details",
+ "naming_rule": "Random",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -1,0 +1,156 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:EC-M-{#####}",
+ "creation": "2025-12-17 17:52:13.747672",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_flyx",
+  "amended_from",
+  "association_category",
+  "region",
+  "column_break_xhmh",
+  "association_name",
+  "association_status",
+  "column_break_feus",
+  "elected_ec_member",
+  "type",
+  "section_break_vomi",
+  "elected_ec_office_bearers",
+  "appointed_ec_members",
+  "special_invitees_ec_members",
+  "elected_ec_members"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_flyx",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "EC Membership",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "association_category",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Association Category",
+   "options": "Association Category",
+   "reqd": 1
+  },
+  {
+   "fieldname": "region",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Region",
+   "options": "Region"
+  },
+  {
+   "fieldname": "association_name",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Association Name",
+   "options": "Association"
+  },
+  {
+   "fieldname": "section_break_vomi",
+   "fieldtype": "Section Break",
+   "label": "EC Members"
+  },
+  {
+   "fieldname": "elected_ec_members",
+   "fieldtype": "Table",
+   "hidden": 1,
+   "options": "EC Member Details"
+  },
+  {
+   "depends_on": "eval:doc.type !=\"Non-Member\"",
+   "fieldname": "elected_ec_office_bearers",
+   "fieldtype": "Table",
+   "label": "Elected Office Bearers",
+   "options": "EC Member Details"
+  },
+  {
+   "fieldname": "appointed_ec_members",
+   "fieldtype": "Table",
+   "label": "Appointed",
+   "options": "EC Member Details"
+  },
+  {
+   "fieldname": "special_invitees_ec_members",
+   "fieldtype": "Table",
+   "label": "Special Invitees",
+   "options": "EC Member Details"
+  },
+  {
+   "fieldname": "column_break_xhmh",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_feus",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "elected_ec_member",
+   "fieldtype": "Int",
+   "label": "Elected EC Members"
+  },
+  {
+   "allow_on_submit": 1,
+   "default": "Live",
+   "fieldname": "association_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Association Status",
+   "options": "Live\nExpired",
+   "reqd": 1
+  },
+  {
+   "fieldname": "type",
+   "fieldtype": "Select",
+   "label": "Type",
+   "options": "\nMember\nNon-Member"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-12-26 13:01:10.282105",
+ "modified_by": "Administrator",
+ "module": "TANSTIA",
+ "name": "EC Membership",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

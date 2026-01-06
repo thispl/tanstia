@@ -1,0 +1,393 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{district}-{association_category}",
+ "creation": "2025-12-17 15:50:02.264839",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "type",
+  "region",
+  "status",
+  "amended_from",
+  "column_break_dzwx",
+  "association_category",
+  "district",
+  "address_section",
+  "address_line_1",
+  "district_name",
+  "column_break_vvdn",
+  "address_line_2",
+  "pin_code",
+  "section_break_oaer",
+  "contact_details",
+  "tenure_of_office_bearers_section",
+  "from_date",
+  "column_break_qbdd",
+  "to_date",
+  "section_break_mtmg",
+  "office_bearers",
+  "section_break_fmqm",
+  "update_button",
+  "column_break_lbuo",
+  "column_break_fsxq",
+  "column_break_ssou",
+  "column_break_bgxi",
+  "column_break_ashi",
+  "add_button",
+  "section_break_iyvj",
+  "name_of_the_company",
+  "industry",
+  "line_of_business",
+  "column_break_jtug",
+  "details",
+  "section_break_bciz",
+  "date_and_year_of_affiliation",
+  "next_subscription_payment_date",
+  "column_break_taru",
+  "member_id",
+  "strength_of_the_association",
+  "section_break_wbuq",
+  "subscription_renewal",
+  "section_break_vkio",
+  "column_break_reuw",
+  "column_break_dvbv",
+  "column_break_uzxe",
+  "column_break_hcuo",
+  "column_break_sdna",
+  "column_break_gepc",
+  "archieve_button",
+  "past_ob_details_tab",
+  "section_break_kist",
+  "previous_office_bearers",
+  "previous_subscription_renewal_details_section",
+  "previous_subscription_renewal"
+ ],
+ "fields": [
+  {
+   "fieldname": "type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Type",
+   "options": "\nMember\nNon-Member",
+   "reqd": 1
+  },
+  {
+   "fieldname": "region",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Region",
+   "options": "Region",
+   "reqd": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Affiliates",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "depends_on": "eval:doc.region",
+   "fieldname": "district",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "District",
+   "options": "District",
+   "reqd": 1
+  },
+  {
+   "fieldname": "association_category",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Association Category",
+   "options": "Association Category",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_dzwx",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "tenure_of_office_bearers_section",
+   "fieldtype": "Section Break",
+   "label": "Tenure of Office Bearers"
+  },
+  {
+   "fieldname": "from_date",
+   "fieldtype": "Date",
+   "label": "From Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_qbdd",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "to_date",
+   "fieldtype": "Date",
+   "label": "To Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_mtmg",
+   "fieldtype": "Section Break",
+   "label": "Office Bearers"
+  },
+  {
+   "fieldname": "office_bearers",
+   "fieldtype": "Table",
+   "options": "Office Bearer Details",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:doc.association_category==\"Unit Member\"",
+   "fieldname": "section_break_iyvj",
+   "fieldtype": "Section Break",
+   "mandatory_depends_on": "eval:doc.association_category==\"Unit Member\""
+  },
+  {
+   "fieldname": "name_of_the_company",
+   "fieldtype": "Data",
+   "label": "Name of the Company"
+  },
+  {
+   "fieldname": "industry",
+   "fieldtype": "Data",
+   "label": "Industry"
+  },
+  {
+   "fieldname": "column_break_jtug",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "line_of_business",
+   "fieldtype": "Link",
+   "label": "Line of Business",
+   "options": "Line of Business"
+  },
+  {
+   "fieldname": "details",
+   "fieldtype": "Small Text",
+   "label": "Details"
+  },
+  {
+   "fieldname": "section_break_bciz",
+   "fieldtype": "Section Break",
+   "hidden": 1
+  },
+  {
+   "fieldname": "date_and_year_of_affiliation",
+   "fieldtype": "Date",
+   "label": "Date & Year of Affiliation"
+  },
+  {
+   "fieldname": "next_subscription_payment_date",
+   "fieldtype": "Date",
+   "label": "Next Subscription Payment Date"
+  },
+  {
+   "fieldname": "column_break_taru",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "member_id",
+   "fieldtype": "Data",
+   "label": "Member ID"
+  },
+  {
+   "default": "Active",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Active\nDeactivated\nDisabled",
+   "reqd": 1
+  },
+  {
+   "fieldname": "strength_of_the_association",
+   "fieldtype": "Int",
+   "label": "Strength of the Association"
+  },
+  {
+   "fieldname": "address_section",
+   "fieldtype": "Section Break",
+   "label": "Address"
+  },
+  {
+   "fieldname": "address_line_1",
+   "fieldtype": "Data",
+   "label": "Address Line 1"
+  },
+  {
+   "fieldname": "district_name",
+   "fieldtype": "Link",
+   "label": "District",
+   "options": "District"
+  },
+  {
+   "fieldname": "column_break_vvdn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "address_line_2",
+   "fieldtype": "Data",
+   "label": "Address Line 2"
+  },
+  {
+   "fieldname": "pin_code",
+   "fieldtype": "Data",
+   "label": "Pin Code"
+  },
+  {
+   "fieldname": "section_break_oaer",
+   "fieldtype": "Section Break",
+   "label": "Contact Details"
+  },
+  {
+   "fieldname": "contact_details",
+   "fieldtype": "Table",
+   "options": "Contact Details"
+  },
+  {
+   "fieldname": "previous_office_bearers",
+   "fieldtype": "Table",
+   "options": "Office Bearer Details",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_kist",
+   "fieldtype": "Section Break",
+   "label": "Previous Office Bearers"
+  },
+  {
+   "fieldname": "section_break_fmqm",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "update_button",
+   "fieldtype": "HTML",
+   "label": "Update Button"
+  },
+  {
+   "fieldname": "column_break_lbuo",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_fsxq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "add_button",
+   "fieldtype": "HTML",
+   "label": "Add Button"
+  },
+  {
+   "fieldname": "past_ob_details_tab",
+   "fieldtype": "Tab Break",
+   "label": "Archived Records"
+  },
+  {
+   "fieldname": "section_break_wbuq",
+   "fieldtype": "Section Break",
+   "label": "Subscription Renewal"
+  },
+  {
+   "fieldname": "subscription_renewal",
+   "fieldtype": "Table",
+   "options": "Subscription Renewal Details",
+   "reqd": 1
+  },
+  {
+   "fieldname": "previous_subscription_renewal_details_section",
+   "fieldtype": "Section Break",
+   "label": "Previous Subscription Renewal Details"
+  },
+  {
+   "fieldname": "previous_subscription_renewal",
+   "fieldtype": "Table",
+   "options": "Subscription Renewal Details",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_vkio",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_reuw",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_dvbv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "archieve_button",
+   "fieldtype": "HTML",
+   "label": "Archieve Button"
+  },
+  {
+   "fieldname": "column_break_uzxe",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_hcuo",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_sdna",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_gepc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_ssou",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_bgxi",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_ashi",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-12-19 13:01:46.824939",
+ "modified_by": "Administrator",
+ "module": "TANSTIA",
+ "name": "Affiliates",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

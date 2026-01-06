@@ -1,0 +1,151 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:EC-OB-{YYYY}-{#####}",
+ "creation": "2025-12-17 17:57:45.744657",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "tenure_of_office_bearers_section",
+  "from_date",
+  "column_break_gphr",
+  "to_date",
+  "ec_membership",
+  "column_break_doth",
+  "tenure",
+  "section_break_ivcj",
+  "office_bearers",
+  "section_break_ruec",
+  "column_break_kpzg",
+  "update_button",
+  "column_break_yifx",
+  "add_button",
+  "column_break_tfhb",
+  "previous_office_bearers_section",
+  "previous_office_bearers"
+ ],
+ "fields": [
+  {
+   "fieldname": "tenure_of_office_bearers_section",
+   "fieldtype": "Section Break",
+   "label": "Tenure of Office Bearers"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "from_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "From Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_gphr",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "to_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "To Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_ivcj",
+   "fieldtype": "Section Break",
+   "label": "Office Bearers"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "office_bearers",
+   "fieldtype": "Table",
+   "options": "EC Office Bearer Details",
+   "reqd": 1
+  },
+  {
+   "fieldname": "previous_office_bearers",
+   "fieldtype": "Table",
+   "options": "Office Bearer Details",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "previous_office_bearers_section",
+   "fieldtype": "Section Break",
+   "label": "Previous Office Bearers"
+  },
+  {
+   "fieldname": "section_break_ruec",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_yifx",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "add_button",
+   "fieldtype": "HTML",
+   "label": "Add Button"
+  },
+  {
+   "fieldname": "column_break_tfhb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_kpzg",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "update_button",
+   "fieldtype": "HTML",
+   "label": "Update Button"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "ec_membership",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "EC Membership",
+   "no_copy": 1
+  },
+  {
+   "fieldname": "column_break_doth",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "tenure",
+   "fieldtype": "Data",
+   "label": "Tenure",
+   "read_only": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-12-26 13:59:47.104439",
+ "modified_by": "Administrator",
+ "module": "TANSTIA",
+ "name": "EC Office Bearer",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

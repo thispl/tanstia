@@ -148,7 +148,7 @@ app_license = "mit"
 # Scheduled Tasks
 # ---------------
 
-# scheduler_events = {
+scheduler_events = {
 # 	"all": [
 # 		"tanstia.tasks.all"
 # 	],
@@ -158,13 +158,13 @@ app_license = "mit"
 # 	"hourly": [
 # 		"tanstia.tasks.hourly"
 # 	],
-# 	"weekly": [
-# 		"tanstia.tasks.weekly"
-# 	],
+	"weekly": [
+		"tanstia.tanstia.doctype.affiliates.affiliates.trigger_notification_for_subscription_renewal"
+	],
 # 	"monthly": [
 # 		"tanstia.tasks.monthly"
 # 	],
-# }
+}
 
 # Testing
 # -------

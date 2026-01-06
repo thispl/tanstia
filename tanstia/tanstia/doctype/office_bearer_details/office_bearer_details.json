@@ -1,0 +1,122 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-12-17 17:35:58.427685",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "designation",
+  "office_bearer",
+  "disabled",
+  "column_break_livc",
+  "email",
+  "contact_number",
+  "section_break_asrr",
+  "from_date",
+  "column_break_nqup",
+  "to_date",
+  "column_break_cusm",
+  "tenure"
+ ],
+ "fields": [
+  {
+   "allow_on_submit": 1,
+   "fieldname": "office_bearer",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Name",
+   "read_only_depends_on": "eval:doc.parentfield ==\"previous_office_bearers\""
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "designation",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Position",
+   "options": "Position",
+   "read_only_depends_on": "eval:doc.parentfield ==\"previous_office_bearers\""
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "contact_number",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Contact Number",
+   "read_only_depends_on": "eval:doc.parentfield ==\"previous_office_bearers\""
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Email",
+   "options": "Email",
+   "read_only_depends_on": "eval:doc.parentfield ==\"previous_office_bearers\""
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "from_date",
+   "fieldtype": "Date",
+   "label": "From Date",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "to_date",
+   "fieldtype": "Date",
+   "label": "To Date",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "default": "0",
+   "fieldname": "disabled",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "Disabled"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "column_break_livc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "section_break_asrr",
+   "fieldtype": "Section Break"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "column_break_nqup",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "column_break_cusm",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "tenure",
+   "fieldtype": "Data",
+   "label": "Tenure",
+   "read_only": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-01-06 10:38:02.594004",
+ "modified_by": "bhuvaneswari.a@groupteampro.com",
+ "module": "TANSTIA",
+ "name": "Office Bearer Details",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

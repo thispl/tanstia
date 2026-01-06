@@ -1,0 +1,519 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "field:member_id",
+ "creation": "2025-12-22 09:52:49.124691",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "type",
+  "region",
+  "status",
+  "association",
+  "column_break_dzwx",
+  "association_category",
+  "district",
+  "member_name",
+  "status_updated_date",
+  "address_section",
+  "address_line_1",
+  "district_name",
+  "address",
+  "column_break_vvdn",
+  "address_line_2",
+  "pin_code",
+  "section_break_oaer",
+  "contact_details",
+  "tenure_of_office_bearers_section",
+  "from_date",
+  "column_break_qbdd",
+  "to_date",
+  "column_break_hmoh",
+  "tenure",
+  "section_break_mtmg",
+  "office_bearers",
+  "association_member_details",
+  "section_break_bciz",
+  "date_and_year_of_affiliation",
+  "next_subscription_payment_date",
+  "next_renewal_updating_date",
+  "column_break_taru",
+  "member_id",
+  "strength_of_the_association",
+  "elected_ec_members_size",
+  "add_button",
+  "section_break_fmqm",
+  "update_button",
+  "column_break_lbuo",
+  "column_break_fsxq",
+  "column_break_ssou",
+  "column_break_bgxi",
+  "column_break_ashi",
+  "section_break_iyvj",
+  "name_of_the_company",
+  "industry",
+  "line_of_business",
+  "column_break_jtug",
+  "details",
+  "society_renewal_section",
+  "document_submission",
+  "submission_date",
+  "validity_column",
+  "validity_start_date",
+  "expiry_date",
+  "section_break_wbuq",
+  "subscription_renewal",
+  "section_break_vkio",
+  "column_break_reuw",
+  "column_break_dvbv",
+  "column_break_uzxe",
+  "column_break_hcuo",
+  "column_break_sdna",
+  "column_break_gepc",
+  "archieve_button",
+  "past_ob_details_tab",
+  "section_break_kist",
+  "previous_office_bearers",
+  "previous_subscription_renewal_details_section",
+  "previous_subscription_renewal",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Type",
+   "options": "\nMember\nNon-Member",
+   "reqd": 1
+  },
+  {
+   "fieldname": "region",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Region",
+   "options": "Region",
+   "reqd": 1
+  },
+  {
+   "default": "Active",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Active\nInactive\nDisabled\nRemoved\nDeleted",
+   "reqd": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Association",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "column_break_dzwx",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "association_category",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Association Category",
+   "options": "Association Category",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:doc.region",
+   "fieldname": "district",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "District",
+   "options": "District",
+   "reqd": 1
+  },
+  {
+   "fieldname": "address_section",
+   "fieldtype": "Section Break",
+   "label": "Address"
+  },
+  {
+   "fieldname": "address_line_1",
+   "fieldtype": "Data",
+   "label": "Address Line 1"
+  },
+  {
+   "fieldname": "district_name",
+   "fieldtype": "Link",
+   "label": "District",
+   "options": "District"
+  },
+  {
+   "fieldname": "column_break_vvdn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "address_line_2",
+   "fieldtype": "Data",
+   "label": "Address Line 2"
+  },
+  {
+   "fieldname": "pin_code",
+   "fieldtype": "Data",
+   "label": "Pin Code"
+  },
+  {
+   "fieldname": "section_break_oaer",
+   "fieldtype": "Section Break",
+   "label": "Contact Details"
+  },
+  {
+   "fieldname": "contact_details",
+   "fieldtype": "Table",
+   "label": "Affiliate Contact",
+   "options": "Contact Details"
+  },
+  {
+   "fieldname": "tenure_of_office_bearers_section",
+   "fieldtype": "Section Break",
+   "label": "Tenure of Office Bearers"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "from_date",
+   "fieldtype": "Date",
+   "label": "From Date"
+  },
+  {
+   "fieldname": "column_break_qbdd",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "to_date",
+   "fieldtype": "Date",
+   "label": "To Date"
+  },
+  {
+   "fieldname": "section_break_mtmg",
+   "fieldtype": "Section Break",
+   "label": "Office Bearers"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "office_bearers",
+   "fieldtype": "Table",
+   "label": "OB Personal Details",
+   "options": "Office Bearer Details"
+  },
+  {
+   "fieldname": "section_break_fmqm",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "update_button",
+   "fieldtype": "HTML",
+   "label": "Update Button"
+  },
+  {
+   "fieldname": "column_break_lbuo",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_fsxq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_ssou",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_bgxi",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_ashi",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "add_button",
+   "fieldtype": "HTML",
+   "label": "Add Button"
+  },
+  {
+   "depends_on": "eval:doc.association_category==\"Unit Member\"",
+   "fieldname": "section_break_iyvj",
+   "fieldtype": "Section Break",
+   "label": "For Unit Member",
+   "mandatory_depends_on": "eval:doc.association_category==\"Unit Member\""
+  },
+  {
+   "fieldname": "name_of_the_company",
+   "fieldtype": "Data",
+   "label": "Name of the Company"
+  },
+  {
+   "fieldname": "industry",
+   "fieldtype": "Data",
+   "label": "Industry"
+  },
+  {
+   "fieldname": "line_of_business",
+   "fieldtype": "Link",
+   "label": "Line of Business",
+   "options": "Line of Business"
+  },
+  {
+   "fieldname": "column_break_jtug",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "details",
+   "fieldtype": "Small Text",
+   "label": "Details"
+  },
+  {
+   "fieldname": "section_break_bciz",
+   "fieldtype": "Section Break",
+   "label": "Subscription Renewal"
+  },
+  {
+   "fieldname": "date_and_year_of_affiliation",
+   "fieldtype": "Date",
+   "label": "Date & Year of Affiliation"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "next_subscription_payment_date",
+   "fieldtype": "Date",
+   "label": "Next Subscription Payment Date"
+  },
+  {
+   "fieldname": "column_break_taru",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "member_id",
+   "fieldtype": "Data",
+   "label": "Member ID",
+   "unique": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "strength_of_the_association",
+   "fieldtype": "Int",
+   "label": "Strength of the Association",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "section_break_wbuq",
+   "fieldtype": "Section Break",
+   "hidden": 1,
+   "label": "Subscription Renewal"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "subscription_renewal",
+   "fieldtype": "Table",
+   "hidden": 1,
+   "options": "Subscription Renewal Details"
+  },
+  {
+   "fieldname": "section_break_vkio",
+   "fieldtype": "Section Break",
+   "hidden": 1
+  },
+  {
+   "fieldname": "column_break_reuw",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_dvbv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_uzxe",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_hcuo",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_sdna",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_gepc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "archieve_button",
+   "fieldtype": "HTML",
+   "label": "Archieve Button"
+  },
+  {
+   "fieldname": "past_ob_details_tab",
+   "fieldtype": "Tab Break",
+   "label": "Archived",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_kist",
+   "fieldtype": "Section Break",
+   "label": "Previous Office Bearers"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "previous_office_bearers",
+   "fieldtype": "Table",
+   "options": "Office Bearer Details",
+   "read_only": 1
+  },
+  {
+   "fieldname": "previous_subscription_renewal_details_section",
+   "fieldtype": "Section Break",
+   "label": "Previous Subscription Renewal Details"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "previous_subscription_renewal",
+   "fieldtype": "Table",
+   "options": "Subscription Renewal Details",
+   "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Association",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "next_renewal_updating_date",
+   "fieldtype": "Date",
+   "label": "Last Subscription Payment Date",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "elected_ec_members_size",
+   "fieldtype": "Int",
+   "label": "Elected EC Members Size",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "column_break_hmoh",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "tenure",
+   "fieldtype": "Data",
+   "label": "Tenure",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.association_category==\"Unit Member\"",
+   "fieldname": "member_name",
+   "fieldtype": "Data",
+   "label": "Member Name",
+   "mandatory_depends_on": "eval:doc.association_category==\"Unit Member\""
+  },
+  {
+   "fieldname": "association",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Association"
+  },
+  {
+   "fieldname": "society_renewal_section",
+   "fieldtype": "Section Break",
+   "label": "Society Renewal"
+  },
+  {
+   "fieldname": "document_submission",
+   "fieldtype": "Select",
+   "label": "Document Submission",
+   "options": "\nYes\nNo"
+  },
+  {
+   "depends_on": "eval:doc.document_submission ==\"Yes\"",
+   "fieldname": "submission_date",
+   "fieldtype": "Date",
+   "label": "Submission Date"
+  },
+  {
+   "fieldname": "validity_column",
+   "fieldtype": "Column Break",
+   "label": "Validity Period"
+  },
+  {
+   "fieldname": "validity_start_date",
+   "fieldtype": "Date",
+   "label": "From Date"
+  },
+  {
+   "fieldname": "expiry_date",
+   "fieldtype": "Date",
+   "label": "To Date"
+  },
+  {
+   "fieldname": "status_updated_date",
+   "fieldtype": "Date",
+   "label": "Status Updated Date"
+  },
+  {
+   "fieldname": "association_member_details",
+   "fieldtype": "Table",
+   "label": "Association Member Details",
+   "options": "Association Member Details"
+  },
+  {
+   "fieldname": "address",
+   "fieldtype": "Small Text",
+   "label": "Address"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-01-06 12:21:50.891633",
+ "modified_by": "bhuvaneswari.a@groupteampro.com",
+ "module": "TANSTIA",
+ "name": "Association",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}
