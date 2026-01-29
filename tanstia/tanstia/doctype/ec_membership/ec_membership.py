@@ -35,7 +35,7 @@ def get_appointed_ec_members():
         "EC Member Details",
         fields=["office_bearer", "email", "contact_number"],
         filters={
-            "parentfield": ["in", ["elected_ec_office_bearers_add","appointed_ec_members", "special_invitees_ec_members"]],
+            "parentfield": ["in", ["elected_ec_office_bearers","appointed_ec_members", "special_invitees_ec_members"]],
             "parenttype": "EC Membership"
         }
     )

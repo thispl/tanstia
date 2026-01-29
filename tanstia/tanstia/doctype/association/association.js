@@ -2,6 +2,11 @@
 // For license information, please see license.txt
 
 frappe.ui.form.on("Association", {
+    status(frm){
+        if(frm.doc.status){
+            frm.set_value('status_updated_date', frappe.datetime.now_date()); 
+        }
+    },
     onload(frm){
 
         if (frm.doc.__islocal) {

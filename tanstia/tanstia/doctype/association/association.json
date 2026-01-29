@@ -9,13 +9,18 @@
  "field_order": [
   "type",
   "region",
-  "status",
+  "next_subscription_payment_date",
+  "member_name",
   "association",
   "column_break_dzwx",
   "association_category",
   "district",
-  "member_name",
+  "next_renewal_updating_date",
+  "company",
+  "column_break_fscv",
+  "status",
   "status_updated_date",
+  "status_updated_on",
   "address_section",
   "address_line_1",
   "district_name",
@@ -36,13 +41,12 @@
   "association_member_details",
   "section_break_bciz",
   "date_and_year_of_affiliation",
-  "next_subscription_payment_date",
-  "next_renewal_updating_date",
-  "column_break_taru",
   "member_id",
+  "column_break_taru",
   "strength_of_the_association",
-  "elected_ec_members_size",
   "add_button",
+  "column_break_dfvd",
+  "elected_ec_members_size",
   "section_break_fmqm",
   "update_button",
   "column_break_lbuo",
@@ -59,9 +63,16 @@
   "society_renewal_section",
   "document_submission",
   "submission_date",
+  "bilo_copy",
   "validity_column",
   "validity_start_date",
   "expiry_date",
+  "bank_details_section",
+  "bank",
+  "column_break_msxq",
+  "bank_account_number",
+  "column_break_uxkn",
+  "branch_name",
   "section_break_wbuq",
   "subscription_renewal",
   "section_break_vkio",
@@ -451,8 +462,9 @@
   {
    "depends_on": "eval:doc.document_submission ==\"Yes\"",
    "fieldname": "submission_date",
-   "fieldtype": "Date",
-   "label": "Submission Date"
+   "fieldtype": "Link",
+   "label": "Submission Date",
+   "options": "Year"
   },
   {
    "fieldname": "validity_column",
@@ -484,14 +496,68 @@
    "fieldname": "address",
    "fieldtype": "Small Text",
    "label": "Address"
+  },
+  {
+   "fieldname": "status_updated_on",
+   "fieldtype": "Datetime",
+   "label": "Status Updated On",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_fscv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_dfvd",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "bank_details_section",
+   "fieldtype": "Section Break",
+   "label": "Bank Details"
+  },
+  {
+   "fieldname": "bank",
+   "fieldtype": "Data",
+   "label": "Bank"
+  },
+  {
+   "fieldname": "column_break_msxq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "bank_account_number",
+   "fieldtype": "Data",
+   "label": "Bank Account Number"
+  },
+  {
+   "fieldname": "column_break_uxkn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "branch_name",
+   "fieldtype": "Data",
+   "label": "Branch Name"
+  },
+  {
+   "fieldname": "bilo_copy",
+   "fieldtype": "Select",
+   "label": "Bilo Copy",
+   "options": "\nYes\nNo"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2026-01-06 12:21:50.891633",
- "modified_by": "bhuvaneswari.a@groupteampro.com",
+ "modified": "2026-01-20 18:21:46.204323",
+ "modified_by": "darshan.r@groupteampro.com",
  "module": "TANSTIA",
  "name": "Association",
  "naming_rule": "By fieldname",

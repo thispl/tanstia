@@ -1,15 +1,15 @@
 {
  "content": null,
- "creation": "2025-12-19 10:25:06.530370",
+ "creation": "2026-01-20 11:53:29.659299",
  "docstatus": 0,
  "doctype": "Page",
- "idx": 7,
- "modified": "2026-01-27 17:10:36.463633",
+ "idx": 0,
+ "modified": "2026-01-27 17:10:56.003575",
  "modified_by": "Administrator",
  "module": "TANSTIA",
- "name": "mail-campaigns",
+ "name": "wharsapp-campaigns",
  "owner": "Administrator",
- "page_name": "mail-campaigns",
+ "page_name": "wharsapp-campaigns",
  "roles": [
   {
    "role": "Member"

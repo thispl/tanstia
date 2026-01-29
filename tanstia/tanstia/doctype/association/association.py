@@ -3,6 +3,7 @@
 
 import frappe
 from frappe.model.document import Document
+from frappe.utils import now
 
 
 class Association(Document):
@@ -12,6 +13,9 @@ class Association(Document):
 				self.association=f"{self.district}-{self.association_category}-{self.member_name}"
 			else:
 				self.association=f"{self.district}-{self.association_category}"
+	def before_save(self):
+		if self.status and self.has_value_changed("status"):
+			self.status_updated_on = now()
 
 	def validate(self):
 		parts = []

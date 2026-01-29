@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
  "autoname": "format:EC-M-{#####}",
  "creation": "2025-12-17 17:52:13.747672",
@@ -13,6 +14,7 @@
   "column_break_xhmh",
   "association_name",
   "association_status",
+  "company",
   "column_break_feus",
   "elected_ec_member",
   "type",
@@ -38,6 +40,7 @@
    "search_index": 1
   },
   {
+   "fetch_from": "association_name.association_category",
    "fieldname": "association_category",
    "fieldtype": "Link",
    "in_list_view": 1,
@@ -47,6 +50,7 @@
    "reqd": 1
   },
   {
+   "fetch_from": "association_name.region",
    "fieldname": "region",
    "fieldtype": "Link",
    "in_list_view": 1,
@@ -101,6 +105,7 @@
    "fieldtype": "Column Break"
   },
   {
+   "fetch_from": "association_name.elected_ec_members_size",
    "fieldname": "elected_ec_member",
    "fieldtype": "Int",
    "label": "Elected EC Members"
@@ -117,18 +122,26 @@
    "reqd": 1
   },
   {
+   "fetch_from": "association_name.type",
    "fieldname": "type",
    "fieldtype": "Select",
    "label": "Type",
    "options": "\nMember\nNon-Member"
+  },
+  {
+   "fetch_from": "association_name.company",
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-12-26 13:01:10.282105",
- "modified_by": "Administrator",
+ "modified": "2026-01-21 13:04:54.737116",
+ "modified_by": "darshan.r@groupteampro.com",
  "module": "TANSTIA",
  "name": "EC Membership",
  "naming_rule": "Expression",
