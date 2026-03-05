@@ -11,9 +11,10 @@
   "amended_from",
   "association_category",
   "region",
+  "association_status",
   "column_break_xhmh",
   "association_name",
-  "association_status",
+  "association",
   "company",
   "column_break_feus",
   "elected_ec_member",
@@ -63,7 +64,7 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "in_standard_filter": 1,
-   "label": "Association Name",
+   "label": "Association ",
    "options": "Association"
   },
   {
@@ -87,7 +88,7 @@
   {
    "fieldname": "appointed_ec_members",
    "fieldtype": "Table",
-   "label": "Appointed",
+   "label": "Co-Option EC Member",
    "options": "EC Member Details"
   },
   {
@@ -115,7 +116,6 @@
    "default": "Live",
    "fieldname": "association_status",
    "fieldtype": "Select",
-   "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Association Status",
    "options": "Live\nExpired",
@@ -132,19 +132,26 @@
    "fetch_from": "association_name.company",
    "fieldname": "company",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "Company",
    "options": "Company"
+  },
+  {
+   "fetch_from": "association_name.association",
+   "fieldname": "association",
+   "fieldtype": "Data",
+   "label": "Association Name"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2026-01-21 13:04:54.737116",
- "modified_by": "darshan.r@groupteampro.com",
+ "modified": "2026-02-27 14:15:56.209558",
+ "modified_by": "dilaka.bj@groupteampro.com",
  "module": "TANSTIA",
  "name": "EC Membership",
- "naming_rule": "Expression",
+ "naming_rule": "Expression (old style)",
  "owner": "Administrator",
  "permissions": [
   {

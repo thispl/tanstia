@@ -137,6 +137,7 @@ frappe.ui.form.on("Association", {
             
             frm.refresh_field("previous_subscription_renewal");
             frm.set_value('from_date',"")
+            frm.set_value('archived',1)
             frm.set_value('to_date',"")
             frm.set_value('tenure',"")
             // frm.set_value('date_and_year_of_affiliation',"")

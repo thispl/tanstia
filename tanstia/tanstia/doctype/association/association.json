@@ -4,6 +4,7 @@
  "allow_rename": 1,
  "autoname": "field:member_id",
  "creation": "2025-12-22 09:52:49.124691",
+ "default_view": "List",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
@@ -14,6 +15,7 @@
   "association",
   "column_break_dzwx",
   "association_category",
+  "association_category_abbr",
   "district",
   "next_renewal_updating_date",
   "company",
@@ -21,6 +23,7 @@
   "status",
   "status_updated_date",
   "status_updated_on",
+  "archived",
   "address_section",
   "address_line_1",
   "district_name",
@@ -137,8 +140,7 @@
    "fieldtype": "Link",
    "in_standard_filter": 1,
    "label": "Association Category",
-   "options": "Association Category",
-   "reqd": 1
+   "options": "Association Category"
   },
   {
    "depends_on": "eval:doc.region",
@@ -187,7 +189,7 @@
   {
    "fieldname": "contact_details",
    "fieldtype": "Table",
-   "label": "Affiliate Contact",
+   "label": "Association Contacts",
    "options": "Contact Details"
   },
   {
@@ -297,8 +299,9 @@
   },
   {
    "fieldname": "date_and_year_of_affiliation",
-   "fieldtype": "Date",
-   "label": "Date & Year of Affiliation"
+   "fieldtype": "Link",
+   "label": "Date & Year of Association",
+   "options": "Year"
   },
   {
    "allow_on_submit": 1,
@@ -414,8 +417,7 @@
    "allow_on_submit": 1,
    "fieldname": "next_renewal_updating_date",
    "fieldtype": "Date",
-   "label": "Last Subscription Payment Date",
-   "read_only": 1
+   "label": "Last Subscription Payment Date"
   },
   {
    "allow_on_submit": 1,
@@ -445,8 +447,7 @@
   {
    "fieldname": "association",
    "fieldtype": "Data",
-   "hidden": 1,
-   "label": "Association"
+   "label": "Association Name"
   },
   {
    "fieldname": "society_renewal_section",
@@ -489,6 +490,7 @@
   {
    "fieldname": "association_member_details",
    "fieldtype": "Table",
+   "hidden": 1,
    "label": "Association Member Details",
    "options": "Association Member Details"
   },
@@ -500,7 +502,7 @@
   {
    "fieldname": "status_updated_on",
    "fieldtype": "Datetime",
-   "label": "Status Updated On",
+   "label": "Document Updation Date",
    "read_only": 1
   },
   {
@@ -542,22 +544,39 @@
   {
    "fieldname": "bilo_copy",
    "fieldtype": "Select",
-   "label": "Bilo Copy",
+   "label": "Bylaw Copy",
    "options": "\nYes\nNo"
   },
   {
    "fieldname": "company",
    "fieldtype": "Link",
-   "label": "Company",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Nick Name",
    "options": "Company"
+  },
+  {
+   "fetch_from": "association_category.abbr",
+   "fieldname": "association_category_abbr",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Association Category ",
+   "options": "Association Category"
+  },
+  {
+   "default": "0",
+   "fieldname": "archived",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "Archived"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2026-01-20 18:21:46.204323",
- "modified_by": "darshan.r@groupteampro.com",
+ "modified": "2026-02-27 16:43:24.744568",
+ "modified_by": "jothi.m@groupteampro.com",
  "module": "TANSTIA",
  "name": "Association",
  "naming_rule": "By fieldname",
@@ -578,8 +597,8 @@
  ],
  "row_format": "Dynamic",
  "rows_threshold_for_grid_search": 20,
- "sort_field": "modified",
- "sort_order": "DESC",
+ "sort_field": "association",
+ "sort_order": "ASC",
  "states": [],
  "track_changes": 1
 }

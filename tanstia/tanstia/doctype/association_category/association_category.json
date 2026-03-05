@@ -15,7 +15,6 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Abbr",
-   "length": 6,
    "reqd": 1
   },
   {
@@ -30,8 +29,8 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-12-17 16:08:33.526453",
- "modified_by": "Administrator",
+ "modified": "2026-02-05 17:10:40.914132",
+ "modified_by": "jothi.m@groupteampro.com",
  "module": "TANSTIA",
  "name": "Association Category",
  "naming_rule": "By fieldname",

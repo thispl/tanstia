@@ -1,0 +1,196 @@
+{
+ "app": "tanstia",
+ "charts": [],
+ "content": "[{\"id\":\"rnQ8afuJx7\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Association</b></span>\",\"col\":12}},{\"id\":\"y2DeQ26jgc\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"District MSME\",\"col\":4}},{\"id\":\"tnjox6TzYC\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Subscription Pending\",\"col\":4}},{\"id\":\"eghSJPhZRC\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"EC Member\",\"col\":4}},{\"id\":\"2DLG9KD80G\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"IEMA\",\"col\":4}},{\"id\":\"c8ympo6mXY\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Document Submission Pending\",\"col\":4}},{\"id\":\"uAzl_lT_C0\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Office Bearer\",\"col\":4}},{\"id\":\"rIwkKQcl2F\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"PMA\",\"col\":4}},{\"id\":\"bHb7WyTcHw\",\"type\":\"spacer\",\"data\":{\"col\":4}},{\"id\":\"EpBz2lplSt\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Mail Campaigns\",\"col\":4}},{\"id\":\"x2wNcCCNN6\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Other Association\",\"col\":4}},{\"id\":\"uZ5pLwduAC\",\"type\":\"spacer\",\"data\":{\"col\":4}},{\"id\":\"OV4HKufFZQ\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Whatsapp Campaigns\",\"col\":4}},{\"id\":\"_5HreLFSZw\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Associated Member\",\"col\":4}},{\"id\":\"QIW_GogcY9\",\"type\":\"spacer\",\"data\":{\"col\":8}},{\"id\":\"0Lg7tmy2ft\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Unit Member\",\"col\":4}},{\"id\":\"z2xodGr1rJ\",\"type\":\"spacer\",\"data\":{\"col\":7}},{\"id\":\"uRsfkRzgfm\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Non Member\",\"col\":4}},{\"id\":\"ztFZyRQgOZ\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b></b></span>\",\"col\":12}},{\"id\":\"yJNNylguxk\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Reports &amp; Masters</b></span>\",\"col\":12}},{\"id\":\"KlsyqqFfqD\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Association Category\",\"col\":7}},{\"id\":\"qEsWuxjWob\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Position\",\"col\":7}},{\"id\":\"c0zajXwmFw\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Region\",\"col\":7}},{\"id\":\"F0Aqpsm_ua\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"District\",\"col\":7}},{\"id\":\"25cN1RvkqB\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Company\",\"col\":7}}]",
+ "creation": "2025-12-19 15:52:08.439578",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "getting-started",
+ "idx": 0,
+ "indicator_color": "green",
+ "is_hidden": 0,
+ "label": "Home",
+ "links": [
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Activity Log",
+   "link_count": 0,
+   "link_to": "Activity Log",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Access Log",
+   "link_count": 0,
+   "link_to": "Access Log",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  }
+ ],
+ "modified": "2026-02-27 17:07:30.791678",
+ "modified_by": "jothi.m@groupteampro.com",
+ "module": "TANSTIA",
+ "name": "Home",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "Home",
+ "public": 1,
+ "quick_lists": [],
+ "restrict_to_domain": "",
+ "roles": [],
+ "sequence_id": 1.0,
+ "shortcuts": [
+  {
+   "color": "Red",
+   "doc_view": "List",
+   "label": "Subscription Pending",
+   "link_to": "Association",
+   "stats_filter": "[[\"Association\",\"status\",\"=\",\"Active\"],[\"Association\",\"next_subscription_payment_date\",\"Timespan\",\"next quarter\"]]",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "",
+   "label": "Mail Campaigns",
+   "link_to": "mail-campaigns",
+   "type": "Page"
+  },
+  {
+   "color": "Cyan",
+   "doc_view": "List",
+   "label": "Unit Member",
+   "link_to": "Association",
+   "stats_filter": "[[\"Association\",\"status\",\"=\",\"Active\"],[\"Association\",\"association_category\",\"=\",\"Unit Member\"]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Whatsapp Campaigns",
+   "link_to": "wharsapp-campaigns",
+   "type": "Page"
+  },
+  {
+   "doc_view": "",
+   "label": "Office Bearer",
+   "link_to": "EC Office Bearer",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Orange",
+   "doc_view": "List",
+   "label": "IEMA",
+   "link_to": "Association",
+   "stats_filter": "[[\"Association\",\"association_category\",\"=\",\"Industrial Estate Manufacturers Association\"],[\"Association\",\"status\",\"=\",\"Active\"]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Association Category",
+   "link_to": "Association Category",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Position",
+   "link_to": "Position",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Green",
+   "doc_view": "List",
+   "label": "District MSME",
+   "link_to": "Association",
+   "stats_filter": "[[\"Association\",\"association_category\",\"=\",\"District\"],[\"Association\",\"status\",\"=\",\"Active\"]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Blue",
+   "doc_view": "",
+   "label": "EC Member",
+   "link_to": "EC Membership",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Cyan",
+   "doc_view": "List",
+   "label": "Non Member",
+   "link_to": "Association",
+   "stats_filter": "[[\"Association\",\"status\",\"=\",\"Active\"],[\"Association\",\"type\",\"=\",\"Non-Member\"]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Yellow",
+   "doc_view": "List",
+   "label": "Document Submission Pending",
+   "link_to": "Association",
+   "stats_filter": "[[\"Association\",\"status\",\"=\",\"Active\"],[\"Association\",\"document_submission\",\"=\",\"No\"]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Region",
+   "link_to": "Region",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "District",
+   "link_to": "Association",
+   "stats_filter": "[[\"Association\",\"status\",\"=\",\"Active\"],[\"Association\",\"association_category\",\"=\",\"District\"]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Company",
+   "link_to": "Company",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Blue",
+   "doc_view": "List",
+   "label": "PMA",
+   "link_to": "Association",
+   "stats_filter": "[[\"Association\",\"status\",\"=\",\"Active\"],[\"Association\",\"association_category\",\"=\",\"Product Manufacturing Association\"]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Pink",
+   "doc_view": "List",
+   "label": "Other Association",
+   "link_to": "Association",
+   "stats_filter": "[[\"Association\",\"status\",\"=\",\"Active\"],[\"Association\",\"association_category\",\"=\",\"Other Association\"]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Yellow",
+   "doc_view": "List",
+   "label": "Associated Member",
+   "link_to": "Association",
+   "stats_filter": "[[\"Association\",\"status\",\"=\",\"Active\"],[\"Association\",\"association_category\",\"=\",\"Associated Member\"]]",
+   "type": "DocType"
+  }
+ ],
+ "title": "Home",
+ "type": "Workspace"
+}
