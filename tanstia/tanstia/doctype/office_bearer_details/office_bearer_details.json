@@ -12,7 +12,7 @@
   "column_break_livc",
   "email",
   "contact_number",
-  "type",
+  "type_details",
   "section_break_asrr",
   "from_date",
   "column_break_nqup",
@@ -105,19 +105,19 @@
    "read_only": 1
   },
   {
-   "fieldname": "type",
+   "fieldname": "type_details",
    "fieldtype": "Select",
    "in_list_view": 1,
    "label": "Type",
-   "options": "\nEC\nOB"
+   "options": "\nOB\nEC\nMember\nNon-Member"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2026-02-27 13:43:39.814981",
- "modified_by": "jothi.m@groupteampro.com",
+ "modified": "2026-04-07 17:09:11.116622",
+ "modified_by": "dilaka.bj@groupteampro.com",
  "module": "TANSTIA",
  "name": "Office Bearer Details",
  "owner": "Administrator",

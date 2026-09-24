@@ -13,17 +13,22 @@
   "next_subscription_payment_date",
   "member_name",
   "association",
+  "stall_no",
   "column_break_dzwx",
   "association_category",
+  "position",
   "association_category_abbr",
   "district",
   "next_renewal_updating_date",
   "company",
+  "stall_size",
   "column_break_fscv",
   "status",
+  "membership_date",
   "status_updated_date",
   "status_updated_on",
   "archived",
+  "product_profile",
   "address_section",
   "address_line_1",
   "district_name",
@@ -65,17 +70,22 @@
   "details",
   "society_renewal_section",
   "document_submission",
-  "submission_date",
   "bilo_copy",
+  "submission_date",
   "validity_column",
   "validity_start_date",
   "expiry_date",
+  "document_submission_section",
+  "udayam",
+  "gst",
+  "column_break_puyv",
   "bank_details_section",
   "bank",
+  "branch_name",
+  "uti_number",
   "column_break_msxq",
   "bank_account_number",
-  "column_break_uxkn",
-  "branch_name",
+  "ifsc_code",
   "section_break_wbuq",
   "subscription_renewal",
   "section_break_vkio",
@@ -104,12 +114,13 @@
    "reqd": 1
   },
   {
+   "depends_on": "eval:doc.type!=\"Non-Member\"",
    "fieldname": "region",
    "fieldtype": "Link",
    "in_standard_filter": 1,
    "label": "Region",
-   "options": "Region",
-   "reqd": 1
+   "mandatory_depends_on": "eval:doc.type!=\"Non-Member\"",
+   "options": "Region"
   },
   {
    "default": "Active",
@@ -136,6 +147,7 @@
    "fieldtype": "Column Break"
   },
   {
+   "depends_on": "eval:doc.type!=\"Non-Member\"",
    "fieldname": "association_category",
    "fieldtype": "Link",
    "in_standard_filter": 1,
@@ -153,17 +165,18 @@
   },
   {
    "fieldname": "address_section",
-   "fieldtype": "Section Break",
-   "label": "Address"
+   "fieldtype": "Section Break"
   },
   {
    "fieldname": "address_line_1",
    "fieldtype": "Data",
+   "hidden": 1,
    "label": "Address Line 1"
   },
   {
    "fieldname": "district_name",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "District",
    "options": "District"
   },
@@ -174,11 +187,13 @@
   {
    "fieldname": "address_line_2",
    "fieldtype": "Data",
+   "hidden": 1,
    "label": "Address Line 2"
   },
   {
    "fieldname": "pin_code",
    "fieldtype": "Data",
+   "hidden": 1,
    "label": "Pin Code"
   },
   {
@@ -193,6 +208,7 @@
    "options": "Contact Details"
   },
   {
+   "depends_on": "eval:doc.type!=\"Non-Member\" && doc.association_category != \"Unit Member\"",
    "fieldname": "tenure_of_office_bearers_section",
    "fieldtype": "Section Break",
    "label": "Tenure of Office Bearers"
@@ -215,8 +231,7 @@
   },
   {
    "fieldname": "section_break_mtmg",
-   "fieldtype": "Section Break",
-   "label": "Office Bearers"
+   "fieldtype": "Section Break"
   },
   {
    "allow_on_submit": 1,
@@ -293,6 +308,7 @@
    "label": "Details"
   },
   {
+   "depends_on": "eval:doc.type!=\"Non-Member\"&& doc.association_category!=\"Unit Member\"",
    "fieldname": "section_break_bciz",
    "fieldtype": "Section Break",
    "label": "Subscription Renewal"
@@ -305,6 +321,7 @@
   },
   {
    "allow_on_submit": 1,
+   "depends_on": "eval:doc.type!=\"Non-Member\"",
    "fieldname": "next_subscription_payment_date",
    "fieldtype": "Date",
    "label": "Next Subscription Payment Date"
@@ -374,6 +391,7 @@
    "label": "Archieve Button"
   },
   {
+   "depends_on": "eval:doc.type === \"Member\" && doc.association_category != \"Unit Member\"",
    "fieldname": "past_ob_details_tab",
    "fieldtype": "Tab Break",
    "label": "Archived",
@@ -415,6 +433,7 @@
   },
   {
    "allow_on_submit": 1,
+   "depends_on": "eval:doc.type!=\"Non-Member\"",
    "fieldname": "next_renewal_updating_date",
    "fieldtype": "Date",
    "label": "Last Subscription Payment Date"
@@ -450,13 +469,14 @@
    "label": "Association Name"
   },
   {
+   "depends_on": "eval:doc.type!=\"Non-Member\" && doc.association_category!=\"Unit Member\"",
    "fieldname": "society_renewal_section",
    "fieldtype": "Section Break",
    "label": "Society Renewal"
   },
   {
    "fieldname": "document_submission",
-   "fieldtype": "Select",
+   "fieldtype": "Data",
    "label": "Document Submission",
    "options": "\nYes\nNo"
   },
@@ -533,23 +553,20 @@
    "label": "Bank Account Number"
   },
   {
-   "fieldname": "column_break_uxkn",
-   "fieldtype": "Column Break"
-  },
-  {
    "fieldname": "branch_name",
    "fieldtype": "Data",
    "label": "Branch Name"
   },
   {
    "fieldname": "bilo_copy",
-   "fieldtype": "Select",
+   "fieldtype": "Data",
    "label": "Bylaw Copy",
    "options": "\nYes\nNo"
   },
   {
+   "depends_on": "eval:doc.association_category != \"Unit Member\"",
    "fieldname": "company",
-   "fieldtype": "Link",
+   "fieldtype": "Data",
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Nick Name",
@@ -569,14 +586,77 @@
    "fieldtype": "Check",
    "hidden": 1,
    "label": "Archived"
+  },
+  {
+   "fieldname": "uti_number",
+   "fieldtype": "Data",
+   "label": "UTI Number"
+  },
+  {
+   "fieldname": "product_profile",
+   "fieldtype": "Data",
+   "label": "Product Profile"
+  },
+  {
+   "fieldname": "stall_no",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Stall No"
+  },
+  {
+   "fieldname": "stall_size",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Stall Size"
+  },
+  {
+   "depends_on": "eval:doc.type === \"Non-Member\"",
+   "fieldname": "document_submission_section",
+   "fieldtype": "Section Break",
+   "label": "Document Submission"
+  },
+  {
+   "fieldname": "udayam",
+   "fieldtype": "Data",
+   "label": "Udayam",
+   "options": "\nYes\nNo"
+  },
+  {
+   "fieldname": "gst",
+   "fieldtype": "Data",
+   "label": "GST",
+   "options": "\nYes\nNo"
+  },
+  {
+   "fieldname": "column_break_puyv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "ifsc_code",
+   "fieldtype": "Data",
+   "label": "IFSC Code",
+   "no_copy": 1
+  },
+  {
+   "depends_on": "eval:doc.association_category==\"Unit Member\"",
+   "fieldname": "membership_date",
+   "fieldtype": "Date",
+   "label": "Membership Date"
+  },
+  {
+   "depends_on": "eval:doc.association_category == \"Unit Member\"",
+   "fieldname": "position",
+   "fieldtype": "Select",
+   "label": "Position",
+   "options": "\nLife Member\nIndividual"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2026-02-27 16:43:24.744568",
- "modified_by": "jothi.m@groupteampro.com",
+ "modified": "2026-04-28 15:08:33.628296",
+ "modified_by": "Administrator",
  "module": "TANSTIA",
  "name": "Association",
  "naming_rule": "By fieldname",

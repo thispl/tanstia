@@ -171,24 +171,24 @@ frappe.ui.form.on("Association", {
     to_date(frm) {
         calculate_tenure(frm);
     },
-    before_save: function(frm) {
+    // before_save: function(frm) {
 
-        let parts = [];
+    //     let parts = [];
 
-        if (frm.doc.address_line_1)
-            parts.push(frm.doc.address_line_1);
+    //     if (frm.doc.address_line_1)
+    //         parts.push(frm.doc.address_line_1);
 
-        if (frm.doc.address_line_2)
-            parts.push(frm.doc.address_line_2);
+    //     if (frm.doc.address_line_2)
+    //         parts.push(frm.doc.address_line_2);
 
-        if (frm.doc.district)
-            parts.push(frm.doc.district);
+    //     if (frm.doc.district)
+    //         parts.push(frm.doc.district);
 
-        if (frm.doc.pin_code)
-            parts.push(frm.doc.pin_code);
+    //     if (frm.doc.pin_code)
+    //         parts.push(frm.doc.pin_code);
 
-        frm.set_value("address", parts.join("\n"));
-    },
+    //     frm.set_value("address", parts.join("\n"));
+    // },
     add_achive_data(frm){
         if (frm.doc.office_bearers && frm.doc.office_bearers.length > 0) {
             frm.doc.office_bearers.forEach(ob => {

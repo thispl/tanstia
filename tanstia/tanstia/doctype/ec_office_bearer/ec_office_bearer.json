@@ -1,8 +1,9 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
- "autoname": "format:EC-OB-{YYYY}-{#####}",
  "creation": "2025-12-17 17:57:45.744657",
+ "default_view": "List",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
@@ -123,11 +124,11 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-12-26 13:59:47.104439",
- "modified_by": "Administrator",
+ "modified": "2026-04-30 17:57:41.094938",
+ "modified_by": "darshan.r@groupteampro.com",
  "module": "TANSTIA",
  "name": "EC Office Bearer",
- "naming_rule": "Expression",
+ "naming_rule": "By script",
  "owner": "Administrator",
  "permissions": [
   {
@@ -135,6 +136,7 @@
    "delete": 1,
    "email": 1,
    "export": 1,
+   "import": 1,
    "print": 1,
    "read": 1,
    "report": 1,

@@ -23,7 +23,7 @@
    "filters": "[[\"Association\",\"association_category\",\"=\",\"District\"],[\"Association\",\"status\",\"=\",\"Active\"]]",
    "indent": 0,
    "keep_closed": 0,
-   "label": "District MSME",
+   "label": "District",
    "link_to": "",
    "link_type": "URL",
    "navigate_to_tab": "",
@@ -149,8 +149,8 @@
    "indent": 0,
    "keep_closed": 0,
    "label": "EC Office Bearer",
-   "link_to": "EC Office Bearer",
-   "link_type": "DocType",
+   "link_to": "EC Office Bearer Report",
+   "link_type": "Report",
    "show_arrow": 0,
    "type": "Link"
   },
@@ -177,8 +177,8 @@
    "type": "Link"
   }
  ],
- "modified": "2026-03-03 19:09:26.289012",
- "modified_by": "jeniba.a@groupteampro.com",
+ "modified": "2026-04-15 19:07:14.943624",
+ "modified_by": "Administrator",
  "module": "TANSTIA",
  "name": "Home",
  "owner": "Administrator",

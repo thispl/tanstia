@@ -2,7 +2,7 @@
  "actions": [],
  "allow_import": 1,
  "allow_rename": 1,
- "autoname": "format:EC-M-{#####}",
+ "autoname": "naming_series:naming_series",
  "creation": "2025-12-17 17:52:13.747672",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -16,9 +16,12 @@
   "association_name",
   "association",
   "company",
+  "district",
   "column_break_feus",
   "elected_ec_member",
   "type",
+  "position",
+  "naming_series",
   "section_break_vomi",
   "elected_ec_office_bearers",
   "appointed_ec_members",
@@ -129,7 +132,6 @@
    "options": "\nMember\nNon-Member"
   },
   {
-   "fetch_from": "association_name.company",
    "fieldname": "company",
    "fieldtype": "Link",
    "hidden": 1,
@@ -141,17 +143,36 @@
    "fieldname": "association",
    "fieldtype": "Data",
    "label": "Association Name"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Naming Series",
+   "options": "EC-.###.\nDST-.###.\nIMA-.###.\nPMA-.###.\nOTH-.###."
+  },
+  {
+   "fetch_from": "association_name.district",
+   "fieldname": "district",
+   "fieldtype": "Link",
+   "label": "District",
+   "options": "District"
+  },
+  {
+   "fieldname": "position",
+   "fieldtype": "Data",
+   "label": "Position"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2026-02-27 14:15:56.209558",
- "modified_by": "dilaka.bj@groupteampro.com",
+ "modified": "2026-06-02 10:33:37.643398",
+ "modified_by": "pavithra.s@groupteampro.com",
  "module": "TANSTIA",
  "name": "EC Membership",
- "naming_rule": "Expression (old style)",
+ "naming_rule": "By \"Naming Series\" field",
  "owner": "Administrator",
  "permissions": [
   {

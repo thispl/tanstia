@@ -4,8 +4,17 @@
 import frappe
 from frappe.model.document import Document
 from frappe import _
+from frappe.model.naming import getseries
 
 class ECOfficeBearer(Document):
+
+	def autoname(self):
+		if not self.tenure:
+			frappe.throw("Tenure is required")
+
+		prefix = f"OB-{self.tenure}-"
+		self.name = f"{prefix}{getseries(prefix, 3)}"
+
 	def validate(self):
 		missing_fields = []
 

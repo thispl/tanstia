@@ -4,9 +4,11 @@
 import frappe
 from frappe.model.document import Document
 from frappe.utils import now
+from frappe.model.naming import getseries
 
 
 class Association(Document):
+
 	def before_insert(self):
 		if self.association_category and self.district:
 			if self.association_category =="Unit Member":
@@ -19,20 +21,20 @@ class Association(Document):
 	
 
 	def validate(self):
-		parts = []
-		if self.address_line_1:
-			parts.append(self.address_line_1)
+		# parts = []
+		# if self.address_line_1:
+		# 	parts.append(self.address_line_1)
 
-		if self.address_line_2:
-			parts.append(self.address_line_2)
+		# if self.address_line_2:
+		# 	parts.append(self.address_line_2)
 
-		if self.district:
-			parts.append(self.district)
+		# if self.district:
+		# 	parts.append(self.district)
 
-		if self.pin_code:
-			parts.append(self.pin_code)
+		# if self.pin_code:
+		# 	parts.append(self.pin_code)
 
-		self.address = "\n".join(parts)
+		# self.address = "\n".join(parts)
 		if self.office_bearers and self.archived ==1:
 			self.archived =0
 			# Create EC Membership document
@@ -91,3 +93,17 @@ class Association(Document):
 			# Insert EC Office Bearer only if new
 			if is_new_ob:
 				ec_ob_doc.save(ignore_permissions=True)
+
+
+def update_nick_name_all():
+	
+	records = frappe.get_all("Association", filters={ "association_category": ["not in", ["Industrial Estate Manufacturers Association", "District"]],},fields=["name", "company"])
+	for r in records:
+		if r.company:
+			doc = frappe.get_doc("Association", r.name)
+			doc.company = ""
+			doc.save(ignore_permissions=True)
+
+	frappe.db.commit()
+
+	return f"{len(records)} records checked and updated"

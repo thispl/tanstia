@@ -4,36 +4,36 @@ frappe.ui.form.on("EC Office Bearer", {
     refresh(frm) {
         let ec_member_map = {};
 
-        frappe.call({
-            method: "tanstia.tanstia.doctype.ec_membership.ec_membership.get_appointed_ec_members",
-            callback: function (r) {
-                if (r.message) {
+        // frappe.call({
+        //     method: "tanstia.tanstia.doctype.ec_membership.ec_membership.get_appointed_ec_members",
+        //     callback: function (r) {
+        //         if (r.message) {
 
-                    // Attach map to frm
-                    frm.ec_member_map = {};
+        //             // Attach map to frm
+        //             frm.ec_member_map = {};
 
-                    r.message.forEach(d => {
-                        frm.ec_member_map[d.office_bearer] = {
-                            email: d.email,
-                            contact_number: d.contact_number
-                        };
-                    });
+        //             r.message.forEach(d => {
+        //                 frm.ec_member_map[d.office_bearer] = {
+        //                     email: d.email,
+        //                     contact_number: d.contact_number
+        //                 };
+        //             });
 
-                    let options = Object.keys(frm.ec_member_map);
+        //             let options = Object.keys(frm.ec_member_map);
 
-                    frm.fields_dict['office_bearers']
-                        .grid.update_docfield_property(
-                            'office_bearer',
-                            'options',
-                            options.join('\n')
-                        );
-                }
-            }
-        });
+        //             frm.fields_dict['office_bearers']
+        //                 .grid.update_docfield_property(
+        //                     'office_bearer',
+        //                     'options',
+        //                     options.join('\n')
+        //                 );
+        //         }
+        //     }
+        // });
 
 
         if (!frm.doc.__islocal) {
-            frm.add_custom_button(__("Archive"), function() {
+            frm.add_custom_button(__("Archive"), function () {
                 open_dialog(frm);
             }, __("Actions"));
         }
@@ -60,50 +60,50 @@ frappe.ui.form.on("EC Office Bearer", {
             frm.refresh_field("office_bearers");
         }
     },
-//     add_achive_data(frm){
-//         if (frm.doc.office_bearers && frm.doc.office_bearers.length > 0) {
-//             frm.doc.office_bearers.forEach(ob => {
-//                 let old_row = frm.add_child("previous_office_bearers");
+    //     add_achive_data(frm){
+    //         if (frm.doc.office_bearers && frm.doc.office_bearers.length > 0) {
+    //             frm.doc.office_bearers.forEach(ob => {
+    //                 let old_row = frm.add_child("previous_office_bearers");
 
-//                 old_row.office_bearer = ob.office_bearer;
-//                 old_row.designation = ob.designation;
-//                 old_row.contact_number = ob.contact_number;
-//                 old_row.email = ob.email;
-//                 old_row.from_date = ob.from_date || frm.doc.from_date;
-//                 old_row.to_date = ob.to_date || frm.doc.to_date;
-//                 old_row.disabled =1;
-//                 old_row.tenure = frm.doc.tenure;
-//             });
+    //                 old_row.office_bearer = ob.office_bearer;
+    //                 old_row.designation = ob.designation;
+    //                 old_row.contact_number = ob.contact_number;
+    //                 old_row.email = ob.email;
+    //                 old_row.from_date = ob.from_date || frm.doc.from_date;
+    //                 old_row.to_date = ob.to_date || frm.doc.to_date;
+    //                 old_row.disabled =1;
+    //                 old_row.tenure = frm.doc.tenure;
+    //             });
 
-//             frm.refresh_field("previous_office_bearers");
-//         }
-        
-//         frm.set_value('from_date',"")
-//         frm.set_value('to_date',"")
-//         frm.set_value('tenure',"")
-        
-//         frm.clear_table("office_bearers");
-//         let ob_row = frm.add_child("office_bearers");
+    //             frm.refresh_field("previous_office_bearers");
+    //         }
 
-//         ob_row.designation = "President";
-//         frm.refresh_field("office_bearers");
+    //         frm.set_value('from_date',"")
+    //         frm.set_value('to_date',"")
+    //         frm.set_value('tenure',"")
 
-// },
-    onload: function(frm) {
+    //         frm.clear_table("office_bearers");
+    //         let ob_row = frm.add_child("office_bearers");
+
+    //         ob_row.designation = "President";
+    //         frm.refresh_field("office_bearers");
+
+    // },
+    onload: function (frm) {
         if (frm.doc.__islocal) {
             frm.clear_table("office_bearers");
-            office_bearers =['President','General Secretory','Treasurer','H.Q Joint Secretary',
-                'Regional Vice President','Regional Vice President','Regional Vice President','Regional Vice President',
-                'Regional Joint Secretary','Regional Joint Secretary','Regional Joint Secretary','Regional Joint Secretary','IPP'
+            office_bearers = ['President', 'General Secretory', 'Treasurer', 'H.Q Joint Secretary',
+                'Regional Vice President', 'Regional Vice President', 'Regional Vice President', 'Regional Vice President',
+                'Regional Joint Secretary', 'Regional Joint Secretary', 'Regional Joint Secretary', 'Regional Joint Secretary', 'IPP'
             ]
             office_bearers.forEach(ob => {
-            let ob_row = frm.add_child("office_bearers");
+                let ob_row = frm.add_child("office_bearers");
                 ob_row.designation = ob;
             });
             frm.refresh_field("office_bearers");
         }
         if (!frm.doc.__islocal) {
-            frm.add_custom_button(__("Archive"), function() {
+            frm.add_custom_button(__("Archive"), function () {
                 open_dialog(frm);
             }, __("Actions"));
         }
@@ -116,8 +116,8 @@ function calculate_tenure(frm) {
         let from_date = new Date(frm.doc.from_date);
         let to_date = new Date(frm.doc.to_date);
 
-        let tenure = from_date.getFullYear() + " - " + to_date.getFullYear();
-        if (from_date.getFullYear() == to_date.getFullYear()){
+        let tenure = from_date.getFullYear() + "-" + to_date.getFullYear();
+        if (from_date.getFullYear() == to_date.getFullYear()) {
             tenure = from_date.getFullYear()
         }
         frm.set_value("tenure", tenure);
@@ -166,8 +166,8 @@ frappe.ui.form.on("EC Office Bearer Details", {
 
 
 function show_missing_fields(frm) {
-    if ((frm.doc.from_date && frm.doc.to_date ) && (frm.doc.office_bearers || frm.doc.office_bearers.length < 0)) {
-        let fields =['Office Bearers'];
+    if ((frm.doc.from_date && frm.doc.to_date) && (frm.doc.office_bearers || frm.doc.office_bearers.length < 0)) {
+        let fields = ['Office Bearers'];
         frappe.msgprint({
             title: __("Missing Fields"),
             message: __(
@@ -176,7 +176,7 @@ function show_missing_fields(frm) {
             ),
             indicator: "red"
         });
-        frappe.validate=false
+        frappe.validate = false
     }
 }
 
@@ -237,22 +237,22 @@ function open_dialog(frm) {
             old_row.email = ob.email;
             old_row.from_date = ob.from_date || frm.doc.from_date;
             old_row.to_date = ob.to_date || frm.doc.to_date;
-            old_row.disabled =1;
-            old_row.tenure =ob.tenure;
+            old_row.disabled = 1;
+            old_row.tenure = ob.tenure;
         });
 
         frm.refresh_field("previous_office_bearers");
     }
-    frm.set_value('from_date',"")
-    frm.set_value('to_date',"")
-    frm.set_value('tenure',"")
+    frm.set_value('from_date', "")
+    frm.set_value('to_date', "")
+    frm.set_value('tenure', "")
     frm.clear_table("office_bearers");
-    office_bearers =['President','General Secretory','Treasurer','H.Q Joint Secretary',
-        'Regional Vice President','Regional Vice President','Regional Vice President','Regional Vice President',
-        'Regional Joint Secretary','Regional Joint Secretary','Regional Joint Secretary','Regional Joint Secretary','IPP'
+    office_bearers = ['President', 'General Secretory', 'Treasurer', 'H.Q Joint Secretary',
+        'Regional Vice President', 'Regional Vice President', 'Regional Vice President', 'Regional Vice President',
+        'Regional Joint Secretary', 'Regional Joint Secretary', 'Regional Joint Secretary', 'Regional Joint Secretary', 'IPP'
     ]
     office_bearers.forEach(ob => {
-    let ob_row = frm.add_child("office_bearers");
+        let ob_row = frm.add_child("office_bearers");
         ob_row.designation = ob;
     });
     frm.refresh_field("office_bearers");
