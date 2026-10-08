@@ -3,8 +3,9 @@
 
 import frappe
 from frappe.model.document import Document
-from frappe.utils import now
+from frappe.utils import getdate, now, today
 from frappe.model.naming import getseries
+from datetime import date
 
 
 class Association(Document):
@@ -18,6 +19,22 @@ class Association(Document):
 	def before_save(self):
 		if self.status and self.has_value_changed("status"):
 			self.status_updated_on = now()
+		self.subscription_pending = self.get_subscription_pending()
+
+	def get_subscription_pending(self):
+		today_date = getdate(today())
+		renewal_due = (
+			self.next_renewal_updating_date
+			and getdate(self.next_renewal_updating_date) < date(today_date.year, 1, 1)
+		)
+		paid_in_advance = (
+			self.next_subscription_payment_date
+			and getdate(self.next_subscription_payment_date) > today_date
+		)
+		unit_member_ok = (
+			self.association_category != "Unit Member" or self.position == "Individual"
+		)
+		return bool(renewal_due and not paid_in_advance and unit_member_ok)
 	
 
 	def validate(self):
@@ -95,8 +112,30 @@ class Association(Document):
 				ec_ob_doc.save(ignore_permissions=True)
 
 
+def update_subscription_pending_flags():
+	# Recalculate Subscription Pending for every Association.
+	# Runs daily via the scheduler since the result depends on the current date,
+	# and is also recomputed in Association.before_save when a document changes.
+	frappe.db.sql(
+		"""
+		UPDATE `tabAssociation`
+		SET `subscription_pending` = (
+			`next_renewal_updating_date` IS NOT NULL
+			AND DATE(`next_renewal_updating_date`) < DATE(CONCAT(YEAR(CURDATE()), '-01-01'))
+			AND (`next_subscription_payment_date` IS NULL OR `next_subscription_payment_date` <= CURDATE())
+			AND (
+				`association_category` IS NULL
+				OR `association_category` != 'Unit Member'
+				OR `position` = 'Individual'
+			)
+		)
+		"""
+	)
+	frappe.db.commit()
+
+
 def update_nick_name_all():
-	
+
 	records = frappe.get_all("Association", filters={ "association_category": ["not in", ["Industrial Estate Manufacturers Association", "District"]],},fields=["name", "company"])
 	for r in records:
 		if r.company:

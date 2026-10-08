@@ -23,7 +23,7 @@ frappe.pages['mail-campaigns'].on_page_load = function(wrapper) {
             fieldtype: 'Select',
             label: 'Type',
             fieldname: 'type',
-            options: ['', 'Member', 'Non-Member']
+            options: ['', 'Member', 'Non-Member', 'EC Member', 'Office Bearer']
         },
         parent: $filtersSection,
         render_input: true
@@ -56,10 +56,18 @@ frappe.pages['mail-campaigns'].on_page_load = function(wrapper) {
     // Association Category
     association_category = frappe.ui.form.make_control({
         df: {
-            fieldtype: 'Link',
+            fieldtype: 'Select',
             label: 'Association Category',
-            options: 'Association Category',
-            fieldname: 'association_category'
+            fieldname: 'association_category',
+            options: [
+                '',
+                'District',
+                'Industrial Estate Manufacturers Association',
+                'Product Manufacturing Association',
+                'Other Association',
+                'Associated Member',
+                'Unit Member'
+            ]
         },
         parent: $filtersSection,
         render_input: true

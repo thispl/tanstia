@@ -3,7 +3,7 @@
  "allow_import": 1,
  "allow_rename": 1,
  "autoname": "field:member_id",
- "creation": "2025-12-22 09:52:49.124691",
+ "creation": "2026-09-26 11:04:19.141215",
  "default_view": "List",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -24,6 +24,7 @@
   "stall_size",
   "column_break_fscv",
   "status",
+  "association_status",
   "membership_date",
   "status_updated_date",
   "status_updated_on",
@@ -101,7 +102,8 @@
   "previous_office_bearers",
   "previous_subscription_renewal_details_section",
   "previous_subscription_renewal",
-  "amended_from"
+  "amended_from",
+  "subscription_pending"
  ],
  "fields": [
   {
@@ -325,6 +327,14 @@
    "fieldname": "next_subscription_payment_date",
    "fieldtype": "Date",
    "label": "Next Subscription Payment Date"
+  },
+  {
+   "default": "0",
+   "fieldname": "subscription_pending",
+   "fieldtype": "Check",
+   "label": "Subscription Pending",
+   "no_copy": 1,
+   "read_only": 1
   },
   {
    "fieldname": "column_break_taru",
@@ -649,14 +659,20 @@
    "fieldtype": "Select",
    "label": "Position",
    "options": "\nLife Member\nIndividual"
+  },
+  {
+   "fieldname": "association_status",
+   "fieldtype": "Select",
+   "label": "Association Status",
+   "options": "\nEnabled\nDisabled"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2026-04-28 15:08:33.628296",
- "modified_by": "Administrator",
+ "modified": "2026-10-03 11:49:08.835748",
+ "modified_by": "sangari.r@groupteampro.com",
  "module": "TANSTIA",
  "name": "Association",
  "naming_rule": "By fieldname",

@@ -26,7 +26,9 @@ app_license = "mit"
 
 # include js, css files in header of desk.html
 # app_include_css = "/assets/tanstia/css/tanstia.css"
-# app_include_js = "/assets/tanstia/js/tanstia.js"
+# Note: /assets is served with Cache-Control max-age=1y by nginx, so bump ?v=
+# whenever workspace_count_fix.js changes or browsers will keep the old file.
+app_include_js = "/assets/tanstia/js/workspace_count_fix.js?v=2"
 
 # include js, css files in header of web template
 # web_include_css = "/assets/tanstia/css/tanstia.css"
@@ -152,9 +154,9 @@ scheduler_events = {
 # 	"all": [
 # 		"tanstia.tasks.all"
 # 	],
-# 	"daily": [
-# 		"tanstia.tasks.daily"
-# 	],
+	"daily": [
+		"tanstia.tanstia.doctype.association.association.update_subscription_pending_flags"
+	],
 # 	"hourly": [
 # 		"tanstia.tasks.hourly"
 # 	],
