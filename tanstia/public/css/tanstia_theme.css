@@ -1,0 +1,971 @@
+/* ============================================================
+   ERPLocal Corporate Theme
+   Palette: deep navy chrome + corporate blue accents on a soft
+   blue-gray canvas. Polished, professional, easy on the eyes.
+   ============================================================ */
+
+:root,
+[data-theme="light"] {
+	/* Brand ramp */
+	--elt-brand: #2058b8;
+	--elt-brand-hover: #2a68c8;
+	--elt-brand-active: #1a4b99;
+	--elt-brand-soft: #e8f0fb;
+	--elt-navy-900: #0b1e3d;
+	--elt-navy-800: #10294f;
+	--elt-navy-700: #173a66;
+	--elt-navy-600: #1f4b85;
+	--elt-accent: #0e9488;
+	--elt-sidebar-text: #b9c7dd;
+	--elt-sidebar-muted: #8299b8;
+
+	/* Map Frappe's blue family onto the corporate ramp so links,
+	   badges, indicators, charts and alerts all pick it up. */
+	--blue-50: #f2f7fd;
+	--blue-100: #e7effb;
+	--blue-200: #d5e3f7;
+	--blue-300: #b7cef1;
+	--blue-400: #7da7e4;
+	--blue-500: #3f7dd6;
+	--blue-600: #2058b8;
+	--blue-700: #1c4e9e;
+	--blue-800: #18417f;
+	--blue-900: #143565;
+
+	/* Core brand + action colors */
+	--primary: var(--elt-brand);
+	--primary-color: var(--elt-brand);
+	--brand-color: var(--elt-brand);
+	--btn-primary: var(--elt-brand);
+
+	/* Page canvas */
+	--bg-color: #f1f4f9;
+	--subtle-accent: #eaf0f7;
+	--subtle-fg: #e3eaf3;
+	--fg-hover-color: #e8f0fa;
+	--highlight-color: #eef4fc;
+	--highlight-shadow: 1px 1px 10px var(--blue-100), 0px 0px 4px var(--blue-600);
+
+	/* Surfaces + borders */
+	--border-color: #dde4ee;
+	--dark-border-color: #ccd6e4;
+	--table-border-color: #dde4ee;
+	--control-bg: #eef2f8;
+	--control-bg-on-gray: #e2e9f2;
+	--disabled-control-bg: #e8edf4;
+	--btn-default-bg: #eef2f8;
+	--btn-default-hover-bg: #dfe7f1;
+	--btn-ghost-hover-bg: #e4ebf5;
+	--awesomplete-hover-bg: var(--elt-brand-soft);
+
+	/* Semantic espresso tokens (Frappe v16) */
+	--surface-blue-1: #f0f6fd;
+	--surface-blue-2: #e0edfb;
+	--surface-blue-3: var(--elt-brand);
+	--surface-gray-1: #f4f7fb;
+	--surface-gray-2: #edf1f7;
+	--surface-gray-3: #e2e8f1;
+	--surface-menu-bar: #eef2f8;
+	--ink-blue-1: #f0f6fd;
+	--ink-blue-2: #3f7dd6;
+	--ink-blue-3: var(--elt-brand);
+	--ink-blue-link: #1c4e9e;
+	--outline-blue-1: #aac6ef;
+	--outline-gray-1: #e2e8f1;
+	--outline-gray-2: #d5deeb;
+	--outline-gray-3: #c0cddd;
+	--outline-gray-modals: #dde4ee;
+
+	/* Focus ring in brand blue */
+	--focus-default: 0 0 0 2px rgba(32, 88, 184, 0.35);
+	--checkbox-color: var(--elt-brand);
+	--checkbox-focus-shadow: var(--focus-default);
+	--switch-bg: #c7d3e4;
+
+	/* Scrollbars */
+	--scrollbar-thumb-color: #b9c6d8;
+	--scrollbar-track-color: #e2e8f1;
+
+	/* Navbar (component rules below add the finish) */
+	--navbar-bg: linear-gradient(90deg, var(--elt-navy-800) 0%, var(--elt-navy-700) 55%, var(--elt-navy-600) 100%);
+
+	/* Sidebar tokens (used by .body-sidebar mixins) */
+	--sidebar-hover-color: rgba(255, 255, 255, 0.09);
+	--sidebar-active-color: rgba(255, 255, 255, 0.14);
+	--sidebar-border-color: rgba(255, 255, 255, 0.08);
+	--divider-color: rgba(255, 255, 255, 0.1);
+
+	/* Date picker */
+	--date-active-bg: var(--elt-brand);
+	--date-range-bg: var(--elt-brand-soft);
+
+	/* Progress bar */
+	--progress-bar-bg: var(--elt-brand);
+
+	/* Timeline / misc */
+	--timeline-badge-bg: var(--elt-brand-soft);
+	--timeline-badge-color: var(--elt-brand);
+	--user-mention-bg-color: var(--elt-brand-soft);
+	--group-mention-bg-color: var(--elt-brand-soft);
+	--skeleton-bg: #e6ecf4;
+}
+
+/* Keep dark theme untouched */
+@media print {
+	:root {
+		--navbar-bg: #ffffff;
+	}
+}
+
+/* ------------------------------------------------------------
+   Typography accents
+   ------------------------------------------------------------ */
+html:not([data-theme="dark"]) a {
+	color: var(--elt-brand);
+}
+html:not([data-theme="dark"]) a:hover {
+	color: var(--elt-brand-hover);
+}
+
+/* ------------------------------------------------------------
+   Top navbar — deep navy gradient
+   ------------------------------------------------------------ */
+html:not([data-theme="dark"]) .navbar {
+	border-bottom: none;
+	box-shadow: 0 2px 10px rgba(11, 30, 61, 0.22);
+	--icon-stroke: #d3dff0;
+	--text-color: #e8eef7;
+	--text-muted: #9fb4d0;
+	--text-light: #9fb4d0;
+	--control-bg: rgba(255, 255, 255, 0.1);
+	color: #e8eef7;
+}
+html:not([data-theme="dark"]) .navbar .nav-link,
+html:not([data-theme="dark"]) .navbar .nav-item,
+html:not([data-theme="dark"]) .navbar .nav-item > a,
+html:not([data-theme="dark"]) .navbar .navbar-home,
+html:not([data-theme="dark"]) .navbar .vertical-bar {
+	color: #dce6f4;
+}
+html:not([data-theme="dark"]) .navbar .vertical-bar {
+	border-right-color: rgba(255, 255, 255, 0.18);
+}
+html:not([data-theme="dark"]) .navbar .dropdown-toggle::after {
+	color: #dce6f4;
+}
+/* navbar icon buttons */
+html:not([data-theme="dark"]) .navbar button,
+html:not([data-theme="dark"]) .navbar .btn.btn-default,
+html:not([data-theme="dark"]) .navbar .btn-reset {
+	color: #dce6f4;
+}
+html:not([data-theme="dark"]) .navbar button:hover,
+html:not([data-theme="dark"]) .navbar .btn.btn-default:hover {
+	background-color: rgba(255, 255, 255, 0.12) !important;
+	color: #ffffff;
+}
+/* awesomebar search inside navbar */
+html:not([data-theme="dark"]) .navbar .search-bar .search-icon {
+	background-color: rgba(255, 255, 255, 0.14);
+}
+html:not([data-theme="dark"]) .navbar .search-bar svg {
+	stroke: #cfdcee;
+}
+html:not([data-theme="dark"]) .navbar .search-bar input {
+	background-color: rgba(255, 255, 255, 0.1) !important;
+	border: 1px solid rgba(255, 255, 255, 0.16) !important;
+	color: #ffffff !important;
+}
+html:not([data-theme="dark"]) .navbar .search-bar input::placeholder {
+	color: #9fb4d0 !important;
+}
+html:not([data-theme="dark"]) .navbar .search-bar input:focus {
+	background-color: #ffffff !important;
+	color: #1f2937 !important;
+}
+/* keep dropdown menus light inside navy navbar */
+html:not([data-theme="dark"]) .navbar .dropdown-menu {
+	--text-color: #1f2b3d;
+	--icon-stroke: #383838;
+	background-color: #ffffff;
+	border: 1px solid var(--border-color);
+	box-shadow: 0 8px 24px rgba(11, 30, 61, 0.16);
+	border-radius: 8px;
+	color: #1f2b3d;
+}
+html:not([data-theme="dark"]) .navbar .dropdown-menu .dropdown-item {
+	color: #1f2b3d;
+}
+html:not([data-theme="dark"]) .navbar .dropdown-menu .dropdown-item:hover {
+	background-color: var(--elt-brand-soft);
+	color: var(--elt-brand);
+}
+
+/* ------------------------------------------------------------
+   Left sidebar — deep navy panel
+   ------------------------------------------------------------ */
+html:not([data-theme="dark"]) .body-sidebar {
+	background: linear-gradient(180deg, var(--elt-navy-800) 0%, var(--elt-navy-900) 100%);
+	border-right: 1px solid rgba(255, 255, 255, 0.06);
+
+	/* light text + icons scoped to the sidebar only */
+	--ink-gray-4: #7489aa;
+	--ink-gray-5: var(--elt-sidebar-muted);
+	--ink-gray-6: var(--elt-sidebar-text);
+	--ink-gray-7: #c9d6e8;
+	--ink-gray-8: #dce6f4;
+	--ink-gray-9: #f0f5fb;
+	--icon-stroke: var(--elt-sidebar-text);
+	--gray-300: rgba(255, 255, 255, 0.14);
+	--text-color: var(--elt-sidebar-text);
+	--text-muted: var(--elt-sidebar-muted);
+	--control-bg: rgba(255, 255, 255, 0.08);
+	--border-color: rgba(255, 255, 255, 0.1);
+}
+html:not([data-theme="dark"]) .body-sidebar .standard-sidebar-item .item-anchor {
+	color: var(--elt-sidebar-text);
+}
+html:not([data-theme="dark"]) .body-sidebar .standard-sidebar-item:hover .item-anchor,
+html:not([data-theme="dark"]) .body-sidebar .standard-sidebar-item:hover .sidebar-item-label {
+	color: #ffffff;
+}
+html:not([data-theme="dark"]) .body-sidebar .section-break {
+	color: var(--elt-sidebar-muted) !important;
+}
+/* active item: brand bar + glow */
+html:not([data-theme="dark"]) .body-sidebar .active-sidebar {
+	background: linear-gradient(90deg, rgba(63, 125, 214, 0.35), rgba(63, 125, 214, 0.12));
+	box-shadow: inset 3px 0 0 var(--elt-brand), 0 1px 4px rgba(0, 0, 0, 0.25);
+}
+html:not([data-theme="dark"]) .body-sidebar .active-sidebar .item-anchor,
+html:not([data-theme="dark"]) .body-sidebar .active-sidebar .sidebar-item-label {
+	color: #ffffff;
+}
+html:not([data-theme="dark"]) .body-sidebar .active-sidebar {
+	--icon-stroke: #ffffff;
+}
+html:not([data-theme="dark"]) .body-sidebar .sidebar-toggle-btn {
+	background: var(--elt-navy-700);
+	border-color: rgba(255, 255, 255, 0.15);
+	color: #ffffff;
+	--icon-stroke: #ffffff;
+}
+html:not([data-theme="dark"]) .body-sidebar .sidebar-toggle-btn:hover {
+	background: var(--elt-navy-600);
+}
+/* user row at the bottom of the sidebar */
+html:not([data-theme="dark"]) .body-sidebar .sidebar-user-button,
+html:not([data-theme="dark"]) .body-sidebar .dropdown-navbar-user {
+	color: var(--elt-sidebar-text);
+}
+html:not([data-theme="dark"]) .body-sidebar .keyboard-shortcut {
+	color: var(--elt-sidebar-muted) !important;
+}
+html:not([data-theme="dark"]) .body-sidebar .sidebar-resize-handle:hover::after {
+	background: var(--elt-brand-hover);
+}
+
+/* ------------------------------------------------------------
+   Buttons
+   ------------------------------------------------------------ */
+html:not([data-theme="dark"]) .btn.btn-primary {
+	background: linear-gradient(180deg, #2c6bd0 0%, var(--elt-brand) 100%);
+	box-shadow: 0 1px 2px rgba(16, 41, 79, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+	--icon-fill-bg: var(--elt-brand);
+}
+html:not([data-theme="dark"]) .btn.btn-primary:hover {
+	background: linear-gradient(180deg, #3676d8 0%, var(--elt-brand-hover) 100%);
+}
+html:not([data-theme="dark"]) .btn.btn-primary:active,
+html:not([data-theme="dark"]) .btn.btn-primary:active:focus {
+	background: var(--elt-brand-active) !important;
+	color: #ffffff !important;
+}
+html:not([data-theme="dark"]) .btn.btn-secondary:active,
+html:not([data-theme="dark"]) .btn.btn-default:active {
+	background-color: var(--btn-default-hover-bg) !important;
+	color: var(--text-color) !important;
+}
+html:not([data-theme="dark"]) .btn-primary-light {
+	color: var(--elt-brand);
+	background-color: var(--elt-brand-soft);
+}
+html:not([data-theme="dark"]) .btn-primary-light:hover {
+	color: var(--elt-brand-hover);
+	background-color: var(--blue-200);
+}
+html:not([data-theme="dark"]) .btn-outline {
+	border-color: var(--outline-gray-2);
+}
+html:not([data-theme="dark"]) .btn-outline:hover {
+	border-color: var(--elt-brand);
+	color: var(--elt-brand);
+}
+
+/* ------------------------------------------------------------
+   Page heads, titles, breadcrumbs
+   ------------------------------------------------------------ */
+html:not([data-theme="dark"]) .page-head {
+	border-bottom: 1px solid var(--border-color);
+}
+html:not([data-theme="dark"]) .page-title .title-text,
+html:not([data-theme="dark"]) .title-text {
+	color: var(--elt-navy-800);
+}
+html:not([data-theme="dark"]) #page-breadcrumbs .breadcrumb-item a,
+html:not([data-theme="dark"]) .breadcrumb-item a {
+	color: var(--elt-brand);
+}
+
+/* ------------------------------------------------------------
+   Workspace widgets + cards
+   ------------------------------------------------------------ */
+html:not([data-theme="dark"]) .widget {
+	border-radius: 10px;
+	border: 1px solid var(--border-color);
+	box-shadow: 0 1px 3px rgba(16, 41, 79, 0.06);
+	background: var(--surface-white, #ffffff);
+}
+html:not([data-theme="dark"]) .widget:hover {
+	box-shadow: 0 6px 18px rgba(16, 41, 79, 0.1);
+}
+html:not([data-theme="dark"]) .widget .widget-head .widget-title {
+	color: var(--elt-navy-800);
+}
+/* shortcut tiles get a subtle brand tint on hover */
+html:not([data-theme="dark"]) .shortcut-widget-box:hover {
+	border-color: var(--blue-300);
+	background: var(--elt-brand-soft);
+}
+/* links widget hover */
+html:not([data-theme="dark"]) .links-widget-box .link-item:hover {
+	background-color: var(--elt-brand-soft);
+}
+html:not([data-theme="dark"]) .link-item:hover .link-content {
+	color: var(--elt-brand);
+}
+
+/* ------------------------------------------------------------
+   List / report views
+   ------------------------------------------------------------ */
+html:not([data-theme="dark"]) .list-row-container .list-row-head {
+	border-bottom: 2px solid var(--elt-navy-700);
+}
+html:not([data-theme="dark"]) .list-row-head .list-row-col {
+	color: var(--elt-navy-800);
+	font-weight: 600;
+}
+html:not([data-theme="dark"]) .list-row:hover {
+	background-color: var(--elt-brand-soft);
+}
+html:not([data-theme="dark"]) .list-row-container .list-row {
+	border-radius: 6px;
+}
+html:not([data-theme="dark"]) .list-subject a {
+	color: var(--elt-navy-800);
+	font-weight: 500;
+}
+html:not([data-theme="dark"]) .list-subject a:hover {
+	color: var(--elt-brand);
+}
+
+/* ------------------------------------------------------------
+   Forms + controls
+   ------------------------------------------------------------ */
+html:not([data-theme="dark"]) .form-section {
+	border-bottom-color: var(--border-color);
+}
+html:not([data-theme="dark"]) .form-section .section-head {
+	color: var(--elt-navy-800);
+}
+html:not([data-theme="dark"]) .control-label {
+	color: #3d4c63;
+}
+html:not([data-theme="dark"]) .form-control:focus,
+html:not([data-theme="dark"]) .input-with-feedback:focus {
+	border-color: var(--elt-brand);
+	box-shadow: var(--focus-default);
+}
+/* form right sidebar */
+html:not([data-theme="dark"]) .form-sidebar .form-sidebar-stats .stat-label {
+	color: var(--elt-sidebar-muted);
+}
+/* nav-tabs (form tabs) */
+html:not([data-theme="dark"]) .nav-tabs .nav-link {
+	color: #4a5a72;
+}
+html:not([data-theme="dark"]) .nav-tabs .nav-link.active {
+	color: var(--elt-brand);
+	border-bottom-color: var(--elt-brand);
+}
+html:not([data-theme="dark"]) .nav-tabs .nav-link:hover {
+	color: var(--elt-brand-hover);
+}
+
+/* ------------------------------------------------------------
+   Dropdowns, popovers, modals (stay light + polished)
+   ------------------------------------------------------------ */
+html:not([data-theme="dark"]) .dropdown-menu {
+	border: 1px solid var(--border-color);
+	border-radius: 8px;
+	box-shadow: 0 8px 24px rgba(11, 30, 61, 0.14);
+}
+html:not([data-theme="dark"]) .dropdown-menu .dropdown-item:hover {
+	background-color: var(--elt-brand-soft);
+}
+html:not([data-theme="dark"]) .modal-content {
+	border-radius: 10px;
+	border: 1px solid var(--border-color);
+}
+html:not([data-theme="dark"]) .modal-header {
+	border-bottom-color: var(--border-color);
+}
+html:not([data-theme="dark"]) .modal-header .modal-title {
+	color: var(--elt-navy-800);
+}
+
+/* ------------------------------------------------------------
+   Indicators, badges, filters, tags
+   ------------------------------------------------------------ */
+html:not([data-theme="dark"]) .indicator-pill.blue,
+html:not([data-theme="dark"]) .indicator.blue {
+	background-color: var(--elt-brand-soft);
+	color: var(--elt-brand);
+}
+html:not([data-theme="dark"]) .filter-button.active,
+html:not([data-theme="dark"]) .filter-tag .filter-name {
+	border-color: var(--outline-blue-1);
+}
+html:not([data-theme="dark"]) .tag-pill {
+	border-radius: 6px;
+}
+
+/* ------------------------------------------------------------
+   Desk misc: comments/timeline, awesomebar results, alerts
+   ------------------------------------------------------------ */
+html:not([data-theme="dark"]) .timeline-item .timeline-badge {
+	background-color: var(--elt-brand-soft);
+}
+html:not([data-theme="dark"]) .awesomplete > ul > li:hover,
+html:not([data-theme="dark"]) .awesomplete > ul > li[aria-selected="true"] {
+	background-color: var(--elt-brand-soft);
+}
+html:not([data-theme="dark"]) .awesomplete mark {
+	color: var(--elt-brand);
+}
+html:not([data-theme="dark"]) .alert.alert-info {
+	border-left: 3px solid var(--elt-brand);
+}
+
+/* ------------------------------------------------------------
+   Login page + public website chrome
+   ------------------------------------------------------------ */
+html:not([data-theme="dark"]) .for-login,
+html:not([data-theme="dark"]) .for-signup,
+html:not([data-theme="dark"]) body[data-path="login"] {
+	background:
+		radial-gradient(900px 500px at 12% 8%, rgba(63, 125, 214, 0.35), transparent 60%),
+		radial-gradient(700px 480px at 88% 15%, rgba(124, 92, 214, 0.3), transparent 60%),
+		radial-gradient(800px 600px at 75% 90%, rgba(14, 148, 136, 0.25), transparent 60%),
+		linear-gradient(160deg, var(--elt-navy-900) 0%, var(--elt-navy-800) 45%, var(--elt-navy-700) 100%);
+}
+html:not([data-theme="dark"]) .for-login .page-card,
+html:not([data-theme="dark"]) body[data-path="login"] .page-card {
+	border-radius: 14px;
+	border: 1px solid rgba(32, 88, 184, 0.18);
+	box-shadow: 0 24px 70px rgba(11, 30, 61, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.6) inset;
+	position: relative;
+	overflow: hidden;
+}
+/* brand accent bar across the top of the login card */
+html:not([data-theme="dark"]) body[data-path="login"] .page-card::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 4px;
+	background: linear-gradient(90deg, var(--elt-brand), var(--elt-accent), #7c5cd6);
+}
+html:not([data-theme="dark"]) .page-card .page-card-head h4,
+html:not([data-theme="dark"]) .page-card-head .page-card-title {
+	color: var(--elt-navy-800);
+}
+/* website navbar */
+html:not([data-theme="dark"]) .web-navbar,
+html:not([data-theme="dark"]) header.navbar-light {
+	border-bottom: 1px solid var(--border-color);
+}
+html:not([data-theme="dark"]) .web-navbar .nav-link.active,
+html:not([data-theme="dark"]) .navbar-light .nav-link.active {
+	color: var(--elt-brand);
+}
+
+/* ------------------------------------------------------------
+   Scrollbars
+   ------------------------------------------------------------ */
+html:not([data-theme="dark"]) ::-webkit-scrollbar-thumb {
+	border-radius: 6px;
+}
+html:not([data-theme="dark"]) ::-webkit-scrollbar-thumb:hover {
+	background: var(--elt-brand);
+}
+
+/* ============================================================
+   Vibrant polish layer
+   ============================================================ */
+
+/* Gradient accent line under the top navbar */
+html:not([data-theme="dark"]) .navbar {
+	position: relative;
+}
+html:not([data-theme="dark"]) .navbar::after {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 3px;
+	background: linear-gradient(90deg, var(--elt-brand) 0%, var(--elt-accent) 50%, #7c5cd6 100%);
+	pointer-events: none;
+}
+
+/* Sidebar section headers + livelier item motion */
+html:not([data-theme="dark"]) .body-sidebar .section-break {
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+	font-size: 10px;
+	font-weight: 600;
+}
+html:not([data-theme="dark"]) .body-sidebar .standard-sidebar-item .item-anchor {
+	transition: background-color 0.15s ease, transform 0.15s ease;
+}
+html:not([data-theme="dark"]) .body-sidebar .standard-sidebar-item:not(.active-sidebar):hover .item-anchor {
+	transform: translateX(2px);
+}
+html:not([data-theme="dark"]) .body-sidebar .active-sidebar {
+	box-shadow: inset 3px 0 0 var(--elt-brand), 0 2px 8px rgba(32, 88, 184, 0.35);
+}
+
+/* Cards + widgets: soft lift on hover */
+html:not([data-theme="dark"]) .widget,
+html:not([data-theme="dark"]) .frappe-card {
+	transition: box-shadow 0.18s ease, transform 0.18s ease, border-color 0.18s ease;
+}
+html:not([data-theme="dark"]) .widget:hover,
+html:not([data-theme="dark"]) .frappe-card:hover {
+	transform: translateY(-2px);
+	border-color: var(--blue-300);
+	box-shadow: 0 8px 22px rgba(16, 41, 79, 0.12);
+}
+
+/* Number cards: brand gradient numerals */
+html:not([data-theme="dark"]) .number-widget-box {
+	border-left: 3px solid var(--elt-brand);
+}
+html:not([data-theme="dark"]) .number-widget-box .number:not([style]) {
+	background: linear-gradient(120deg, var(--elt-brand) 10%, var(--elt-accent) 90%);
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+	color: transparent;
+}
+html:not([data-theme="dark"]) .number-widget-box:nth-of-type(4n + 2) {
+	border-left-color: var(--elt-accent);
+}
+html:not([data-theme="dark"]) .number-widget-box:nth-of-type(4n + 3) {
+	border-left-color: #7c5cd6;
+}
+html:not([data-theme="dark"]) .number-widget-box:nth-of-type(4n + 4) {
+	border-left-color: #d4881c;
+}
+html:not([data-theme="dark"]) .number-widget-box:nth-of-type(4n + 2) .number:not([style]) {
+	background: linear-gradient(120deg, var(--elt-accent), var(--elt-brand));
+	-webkit-background-clip: text;
+	background-clip: text;
+}
+html:not([data-theme="dark"]) .number-widget-box:nth-of-type(4n + 3) .number:not([style]) {
+	background: linear-gradient(120deg, #7c5cd6, var(--elt-brand));
+	-webkit-background-clip: text;
+	background-clip: text;
+}
+html:not([data-theme="dark"]) .number-widget-box:nth-of-type(4n + 4) .number:not([style]) {
+	background: linear-gradient(120deg, #d4881c, #b4464f);
+	-webkit-background-clip: text;
+	background-clip: text;
+}
+
+/* Shortcut tiles: rotating accent colors */
+html:not([data-theme="dark"]) .shortcut-widget-box {
+	border-left: 3px solid transparent;
+	transition: box-shadow 0.18s ease, transform 0.18s ease, border-color 0.18s ease,
+		background-color 0.18s ease;
+}
+html:not([data-theme="dark"]) .shortcut-widget-box:nth-of-type(6n + 1) {
+	border-left-color: var(--elt-brand);
+}
+html:not([data-theme="dark"]) .shortcut-widget-box:nth-of-type(6n + 2) {
+	border-left-color: var(--elt-accent);
+}
+html:not([data-theme="dark"]) .shortcut-widget-box:nth-of-type(6n + 3) {
+	border-left-color: #7c5cd6;
+}
+html:not([data-theme="dark"]) .shortcut-widget-box:nth-of-type(6n + 4) {
+	border-left-color: #d4881c;
+}
+html:not([data-theme="dark"]) .shortcut-widget-box:nth-of-type(6n + 5) {
+	border-left-color: #c2457a;
+}
+html:not([data-theme="dark"]) .shortcut-widget-box:nth-of-type(6n + 6) {
+	border-left-color: #2b8fb8;
+}
+html:not([data-theme="dark"]) .shortcut-widget-box:hover {
+	background: linear-gradient(90deg, var(--elt-brand-soft), #ffffff);
+}
+
+/* Links widget items: colorful hover */
+html:not([data-theme="dark"]) .links-widget-box .link-item {
+	border-radius: 6px;
+	transition: background-color 0.15s ease;
+}
+html:not([data-theme="dark"]) .links-widget-box .link-item:hover .link-content {
+	color: var(--elt-brand);
+}
+
+/* Workspace group titles get a brand underline accent */
+html:not([data-theme="dark"]) .widget-group-head .widget-group-title {
+	color: var(--elt-navy-800);
+	font-weight: 600;
+	border-bottom: 2px solid transparent;
+	background-image: linear-gradient(90deg, var(--elt-brand), var(--elt-accent));
+	background-repeat: no-repeat;
+	background-position: 0 100%;
+	background-size: 36px 2px;
+	padding-bottom: 6px;
+}
+
+/* Primary buttons: lift on hover */
+html:not([data-theme="dark"]) .btn.btn-primary {
+	transition: box-shadow 0.15s ease, transform 0.15s ease, background 0.15s ease;
+}
+html:not([data-theme="dark"]) .btn.btn-primary:hover {
+	box-shadow: 0 4px 12px rgba(32, 88, 184, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+	transform: translateY(-1px);
+}
+
+/* Avatars get a subtle brand ring */
+html:not([data-theme="dark"]) .avatar {
+	box-shadow: 0 0 0 2px var(--elt-brand-soft);
+}
+
+/* List view selected rows + checkboxes accent */
+html:not([data-theme="dark"]) .list-row-container .list-row.activity,
+html:not([data-theme="dark"]) .list-row-container .list-row-checked {
+	background-color: var(--elt-brand-soft);
+}
+
+/* Tags + pills: rounded and colorful border */
+html:not([data-theme="dark"]) .indicator-pill,
+html:not([data-theme="dark"]) .filter-tag {
+	border-radius: 999px;
+}
+
+/* Page action button emphasis (primary page action) */
+html:not([data-theme="dark"]) .page-actions .btn-primary,
+html:not([data-theme="dark"]) .standard-actions .btn-primary {
+	box-shadow: 0 1px 2px rgba(16, 41, 79, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+
+/* Toast + alerts polish */
+html:not([data-theme="dark"]) .alert {
+	border-radius: 8px;
+}
+html:not([data-theme="dark"]) .alert.alert-warning {
+	border-left: 3px solid var(--amber-500, #e79913);
+}
+html:not([data-theme="dark"]) .alert.alert-success {
+	border-left: 3px solid var(--green-600, #30a66d);
+}
+html:not([data-theme="dark"]) .alert.alert-danger {
+	border-left: 3px solid var(--red-500, #e03636);
+}
+
+/* Filter buttons + input focus polish */
+html:not([data-theme="dark"]) .filter-selector .btn-group .btn:active,
+html:not([data-theme="dark"]) .filter-selector .btn-group .btn.active {
+	background-color: var(--elt-brand-soft);
+	color: var(--elt-brand);
+}
+
+/* Onboarding widget accent */
+html:not([data-theme="dark"]) .onboarding-widget-box .onboarding-step:hover {
+	background-color: var(--elt-brand-soft);
+}
+
+/* ============================================================
+   Colorful page pass — pastel canvas + tinted components
+   (desk pages only: they all carry body[data-route])
+   ============================================================ */
+
+/* Soft multi-hue page canvas */
+html:not([data-theme="dark"]) body[data-route] {
+	background:
+		radial-gradient(1000px 500px at 100% 0%, rgba(124, 92, 214, 0.08), transparent 60%),
+		radial-gradient(900px 500px at 0% 100%, rgba(14, 148, 136, 0.08), transparent 60%),
+		linear-gradient(150deg, #e9f0fb 0%, #f0edf9 50%, #e7f5f1 100%);
+	background-attachment: fixed;
+}
+/* sticky page head blends into the canvas */
+html:not([data-theme="dark"]) body[data-route] .page-head {
+	background: linear-gradient(90deg, rgba(233, 240, 251, 0.92), rgba(240, 237, 249, 0.92) 55%, rgba(231, 245, 241, 0.92));
+	backdrop-filter: blur(6px);
+	border-bottom-color: rgba(32, 88, 184, 0.15);
+}
+
+/* Page titles: navy -> brand gradient text */
+html:not([data-theme="dark"]) .page-title .title-text,
+html:not([data-theme="dark"]) .title-text {
+	background: linear-gradient(90deg, var(--elt-navy-800), var(--elt-brand));
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+	color: var(--elt-navy-800);
+}
+
+/* Number cards: pastel gradient panels, rotating hues */
+html:not([data-theme="dark"]) .number-widget-box:nth-of-type(4n + 1) {
+	background: linear-gradient(135deg, #dbe9fd, #f4f8ff);
+}
+html:not([data-theme="dark"]) .number-widget-box:nth-of-type(4n + 2) {
+	background: linear-gradient(135deg, #d6f0ea, #f2fbf8);
+}
+html:not([data-theme="dark"]) .number-widget-box:nth-of-type(4n + 3) {
+	background: linear-gradient(135deg, #e7defa, #f7f3fe);
+}
+html:not([data-theme="dark"]) .number-widget-box:nth-of-type(4n + 4) {
+	background: linear-gradient(135deg, #fdeed0, #fdf8ea);
+}
+html:not([data-theme="dark"]) .number-widget-box .widget-title {
+	color: var(--elt-navy-700);
+}
+
+/* Shortcut tiles: pastel colorway */
+html:not([data-theme="dark"]) .shortcut-widget-box:nth-of-type(6n + 1) {
+	background: linear-gradient(135deg, #e3edfc, #ffffff);
+	border-left-color: var(--elt-brand);
+}
+html:not([data-theme="dark"]) .shortcut-widget-box:nth-of-type(6n + 2) {
+	background: linear-gradient(135deg, #dbf0ea, #ffffff);
+	border-left-color: var(--elt-accent);
+}
+html:not([data-theme="dark"]) .shortcut-widget-box:nth-of-type(6n + 3) {
+	background: linear-gradient(135deg, #ebe2fa, #ffffff);
+	border-left-color: #7c5cd6;
+}
+html:not([data-theme="dark"]) .shortcut-widget-box:nth-of-type(6n + 4) {
+	background: linear-gradient(135deg, #fdf0da, #ffffff);
+	border-left-color: #d4881c;
+}
+html:not([data-theme="dark"]) .shortcut-widget-box:nth-of-type(6n + 5) {
+	background: linear-gradient(135deg, #fae4ef, #ffffff);
+	border-left-color: #c2457a;
+}
+html:not([data-theme="dark"]) .shortcut-widget-box:nth-of-type(6n + 6) {
+	background: linear-gradient(135deg, #dff1f7, #ffffff);
+	border-left-color: #2b8fb8;
+}
+html:not([data-theme="dark"]) .shortcut-widget-box:hover {
+	filter: saturate(1.15);
+}
+
+/* List view: tinted header band + soft zebra */
+html:not([data-theme="dark"]) .list-row-container .list-row-head {
+	background: linear-gradient(90deg, #e2ebf9, #e0f2ed);
+	border-radius: 8px 8px 0 0;
+	border-bottom: none;
+}
+html:not([data-theme="dark"]) .list-row-container .list-row:nth-child(even) {
+	background-color: #f6fafd;
+}
+html:not([data-theme="dark"]) .list-row-container .list-row:hover {
+	background-color: var(--elt-brand-soft);
+}
+
+/* Form section heads: pastel band */
+html:not([data-theme="dark"]) .form-section .section-head {
+	background: linear-gradient(90deg, var(--elt-brand-soft), rgba(255, 255, 255, 0) 80%);
+	border-radius: 6px;
+	padding: 6px 10px 6px 12px;
+	margin-left: -12px;
+}
+
+/* Active form tab: colorful underline + tint */
+html:not([data-theme="dark"]) .nav-tabs .nav-link.active {
+	background: var(--elt-brand-soft);
+	border-radius: 6px 6px 0 0;
+	border-bottom: 2px solid var(--elt-brand);
+}
+
+/* Secondary buttons: colorful hover */
+html:not([data-theme="dark"]) .btn.btn-default:hover,
+html:not([data-theme="dark"]) .btn.btn-secondary:hover {
+	background-color: var(--elt-brand-soft);
+	color: var(--elt-brand);
+}
+
+/* Filter chips: pastel pill look */
+html:not([data-theme="dark"]) .filter-tag {
+	background-color: #eef3fc;
+	border: 1px solid var(--outline-blue-1);
+	color: var(--elt-navy-800);
+}
+html:not([data-theme="dark"]) .filter-tag .filter-x {
+	color: var(--elt-brand);
+}
+
+/* Right-side form sidebar: soft tint panel */
+html:not([data-theme="dark"]) .layout-side-section {
+	background: linear-gradient(180deg, rgba(227, 237, 252, 0.55), rgba(223, 241, 247, 0.35));
+	border-radius: 10px;
+}
+
+/* Cards inside lists/reports pop against the pastel canvas */
+html:not([data-theme="dark"]) .layout-main-section.frappe-card,
+html:not([data-theme="dark"]) .frappe-list .frappe-card {
+	border: 1px solid rgba(32, 88, 184, 0.12);
+	box-shadow: 0 2px 10px rgba(16, 41, 79, 0.07);
+}
+
+/* ============================================================
+   Brand watermark — injected by tanstia_theme.js, follows you
+   on every page. Swap public/images/tanstia-logo.png with your logo.
+   ============================================================ */
+#elt-watermark {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: min(300px, 35vw);
+	aspect-ratio: 465 / 537;
+	background: url("/assets/tanstia/images/tanstia-logo.png") no-repeat center / contain;
+	opacity: 0.28;
+	pointer-events: none;
+	z-index: 1035;
+}
+@media print {
+	#elt-watermark {
+		display: none !important;
+	}
+}
+
+/* ============================================================
+   Attractiveness pass 2
+   ============================================================ */
+
+/* Form section heads: brand accent bar */
+html:not([data-theme="dark"]) .form-section .section-head {
+	position: relative;
+	padding-left: 12px;
+}
+html:not([data-theme="dark"]) .form-section .section-head::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 22%;
+	bottom: 22%;
+	width: 3px;
+	border-radius: 2px;
+	background: linear-gradient(180deg, var(--elt-brand), var(--elt-accent));
+}
+
+/* Datatable / report headers: navy tint */
+html:not([data-theme="dark"]) .datatable .dt-header,
+html:not([data-theme="dark"]) .datatable .dt-row--header,
+html:not([data-theme="dark"]) .dt-header .dt-cell {
+	background-color: #eaf0f9;
+	color: var(--elt-navy-800);
+	font-weight: 600;
+}
+html:not([data-theme="dark"]) .datatable .dt-row:hover .dt-cell {
+	background-color: var(--elt-brand-soft);
+}
+
+/* Progress bars: brand -> teal gradient */
+html:not([data-theme="dark"]) .progress .progress-bar,
+html:not([data-theme="dark"]) .progress-bar {
+	background: linear-gradient(90deg, var(--elt-brand), var(--elt-accent));
+}
+
+/* Kanban board: soft tinted columns */
+html:not([data-theme="dark"]) .kanban-board .kanban-column {
+	background-color: #f4f7fc;
+	border-radius: 10px;
+}
+html:not([data-theme="dark"]) .kanban-board .kanban-column .kanban-column-header {
+	color: var(--elt-navy-800);
+	font-weight: 600;
+}
+html:not([data-theme="dark"]) .kanban-board .kanban-card {
+	border-radius: 8px;
+	border: 1px solid var(--border-color);
+	transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+html:not([data-theme="dark"]) .kanban-board .kanban-card:hover {
+	box-shadow: 0 6px 16px rgba(16, 41, 79, 0.12);
+	transform: translateY(-1px);
+}
+
+/* Notification badge + primary indicators pop */
+html:not([data-theme="dark"]) .notifications-icon .notifications-seen,
+html:not([data-theme="dark"]) .navbar .badge,
+html:not([data-theme="dark"]) .sidebar .badge {
+	background-color: #e2455f;
+}
+
+/* Form sidebar polish */
+html:not([data-theme="dark"]) .form-sidebar .form-sidebar-image {
+	border-radius: 10px;
+}
+html:not([data-theme="dark"]) .form-sidebar-stats .stat {
+	border-radius: 6px;
+}
+
+/* Timeline comments: carded look */
+html:not([data-theme="dark"]) .timeline-item .timeline-content {
+	border-radius: 8px;
+}
+html:not([data-theme="dark"]) .comment-box {
+	border-radius: 10px;
+	border: 1px solid var(--border-color);
+}
+
+/* Dropdown + select menus: rounded, hover tint */
+html:not([data-theme="dark"]) .selectable .dropdown-item:hover {
+	background-color: var(--elt-brand-soft);
+}
+
+/* Awesomebar results: brand highlight */
+html:not([data-theme="dark"]) .navbar-modal-wrapper .awesomplete li[aria-selected="true"],
+html:not([data-theme="dark"]) .navbar-modal-wrapper .awesomplete li:hover {
+	background-color: var(--elt-brand-soft);
+}
+html:not([data-theme="dark"]) .navbar-modal-wrapper .awesomplete mark {
+	color: var(--elt-brand);
+	font-weight: 600;
+}
+
+/* Empty state / placeholder pages: brand tinted icon */
+html:not([data-theme="dark"]) .page-card .state-icon,
+html:not([data-theme="dark"]) .msgprint .icon {
+	color: var(--elt-brand);
+}
+
+/* Footer powered-by strip on web pages */
+html:not([data-theme="dark"]) footer.web-footer,
+html:not([data-theme="dark"]) .web-footer {
+	border-top: 3px solid transparent;
+	background-image: linear-gradient(#ffffff, #ffffff),
+		linear-gradient(90deg, var(--elt-brand), var(--elt-accent), #7c5cd6);
+	background-origin: border-box;
+	background-clip: padding-box, border-box;
+}

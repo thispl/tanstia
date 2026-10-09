@@ -25,14 +25,18 @@ app_license = "mit"
 # ------------------
 
 # include js, css files in header of desk.html
-# app_include_css = "/assets/tanstia/css/tanstia.css"
 # Note: /assets is served with Cache-Control max-age=1y by nginx, so bump ?v=
-# whenever workspace_count_fix.js changes or browsers will keep the old file.
-app_include_js = "/assets/tanstia/js/workspace_count_fix.js?v=2"
+# whenever workspace_count_fix.js or the theme files change or browsers will
+# keep the old file.
+app_include_css = "/assets/tanstia/css/tanstia_theme.css?v=8"
+app_include_js = [
+	"/assets/tanstia/js/workspace_count_fix.js?v=2",
+	"/assets/tanstia/js/tanstia_theme.js",
+]
 
 # include js, css files in header of web template
-# web_include_css = "/assets/tanstia/css/tanstia.css"
-# web_include_js = "/assets/tanstia/js/tanstia.js"
+web_include_css = "/assets/tanstia/css/tanstia_theme.css?v=8"
+web_include_js = "/assets/tanstia/js/tanstia_theme.js"
 
 # include custom scss in every website theme (without file extension ".scss")
 # website_theme_scss = "tanstia/public/scss/website"
